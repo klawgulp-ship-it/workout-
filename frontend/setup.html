@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>75 Day Hard - Setup</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0D0D0D; color: #FFF; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+    .container { max-width: 500px; width: 100%; }
+    h1 { font-size: 24px; margin-bottom: 10px; color: #FF6B35; }
+    p { color: #888; margin-bottom: 20px; line-height: 1.6; }
+    .status { padding: 15px; border-radius: 10px; margin-bottom: 20px; }
+    .status.connected { background: rgba(0, 255, 136, 0.1); border: 1px solid rgba(0, 255, 136, 0.3); color: #00FF88; }
+    .status.disconnected { background: rgba(255, 71, 87, 0.1); border: 1px solid rgba(255, 71, 87, 0.3); color: #FF4757; }
+    .status.checking { background: rgba(255, 183, 71, 0.1); border: 1px solid rgba(255, 183, 71, 0.3); color: #FFB347; }
+    label { display: block; font-size: 12px; color: #888; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+    input { width: 100%; padding: 15px; background: rgba(255,255,255,0.05); border: 2px solid rgba(255,255,255,0.1); border-radius: 10px; color: #FFF; font-size: 14px; margin-bottom: 15px; }
+    input:focus { border-color: #FF6B35; outline: none; }
+    button { width: 100%; padding: 15px; border: none; border-radius: 10px; font-size: 16px; font-weight: 600; cursor: pointer; margin-bottom: 10px; }
+    .save-btn { background: linear-gradient(135deg, #FF6B35, #FF8E53); color: #000; }
+    .test-btn { background: rgba(255,255,255,0.1); color: #FFF; }
+    .launch-btn { background: linear-gradient(135deg, #00FF88, #00D9FF); color: #000; }
+    .hint { font-size: 12px; color: #666; margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.03); border-radius: 10px; }
+    .hint code { background: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔥 75 Day Hard Setup</h1>
+    <p>Connect your app to the backend for real squad sync across devices!</p>
+    
+    <div class="status" id="status">
+      Checking connection...
+    </div>
+    
+    <label>Backend API URL</label>
+    <input type="text" id="apiUrl" placeholder="https://your-backend.up.railway.app">
+    
+    <button class="save-btn" onclick="saveUrl()">💾 Save URL</button>
+    <button class="test-btn" onclick="testConnection()">🔌 Test Connection</button>
+    <button class="launch-btn" onclick="launchApp()">🚀 Launch App</button>
+    
+    <div class="hint">
+      <strong>How to get your backend URL:</strong><br><br>
+      1. Deploy the <code>backend</code> folder to Railway<br>
+      2. Add PostgreSQL database<br>
+      3. Go to Settings → Networking → Generate Domain<br>
+      4. Copy the URL and paste it above
+    </div>
+  </div>
+  
+  <script>
+    var apiUrlInput = document.getElementById('apiUrl');
+    var statusEl = document.getElementById('status');
+    
+    // Load saved URL
+    var savedUrl = localStorage.getItem('75day_api_url');
+    if (savedUrl) {
+      apiUrlInput.value = savedUrl;
+    }
+    
+    // Check connection on load
+    setTimeout(testConnection, 500);
+    
+    function saveUrl() {
+      var url = apiUrlInput.value.trim();
+      // Remove trailing slash
+      if (url.endsWith('/')) url = url.slice(0, -1);
+      
+      localStorage.setItem('75day_api_url', url);
+      alert('URL saved! Now test the connection.');
+    }
+    
+    async function testConnection() {
+      var url = apiUrlInput.value.trim();
+      if (!url) {
+        statusEl.className = 'status disconnected';
+        statusEl.textContent = '❌ No URL configured - enter your backend URL above';
+        return;
+      }
+      
+      statusEl.className = 'status checking';
+      statusEl.textContent = '⏳ Testing connection...';
+      
+      try {
+        var response = await fetch(url + '/api/health', { 
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' }
+        });
+        
+        if (response.ok) {
+          var data = await response.json();
+          statusEl.className = 'status connected';
+          statusEl.textContent = '✅ Connected! Backend is running. You can launch the app.';
+        } else {
+          throw new Error('Bad response');
+        }
+      } catch (err) {
+        statusEl.className = 'status disconnected';
+        statusEl.textContent = '❌ Cannot connect. Check the URL and make sure backend is deployed.';
+      }
+    }
+    
+    function launchApp() {
+      window.location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>
