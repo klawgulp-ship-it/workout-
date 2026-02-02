@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>75 Day Hard | Glutes & Abs Challenge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #0D0D0D 0%, #1A1A2E 50%, #16213E 100%); color: #FFF; min-height: 100vh; }
+    .hide { display: none !important; }
+    .page { min-height: 100vh; padding: 20px; max-width: 500px; margin: 0 auto; }
+    
+    .landing { display: flex; flex-direction: column; align-items: center; padding-top: 40px; text-align: center; }
+    .fire { font-size: 70px; filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.8)); margin-bottom: 10px; }
+    .main-title { font-family: 'Bebas Neue', sans-serif; font-size: 70px; background: linear-gradient(135deg, #FF6B35, #FF8E53, #FFB347); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; letter-spacing: 6px; line-height: 1; }
+    .sub-title { font-family: 'Bebas Neue', sans-serif; font-size: 45px; color: #00FF88; text-shadow: 0 0 40px rgba(0, 255, 136, 0.5); letter-spacing: 12px; }
+    .tagline { font-size: 11px; color: #888; margin-top: 15px; letter-spacing: 2px; text-transform: uppercase; }
+    
+    .form-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 25px; width: 100%; margin-top: 30px; }
+    .form-title { font-family: 'Bebas Neue', sans-serif; font-size: 16px; letter-spacing: 3px; text-align: center; margin-bottom: 20px; color: #FF6B35; }
+    .input-group { margin-bottom: 18px; }
+    .input-label { display: block; font-size: 10px; letter-spacing: 2px; color: #888; margin-bottom: 6px; text-transform: uppercase; }
+    .text-input { width: 100%; padding: 14px; background: rgba(255,255,255,0.05); border: 2px solid rgba(255,255,255,0.1); border-radius: 10px; color: #FFF; font-size: 16px; outline: none; }
+    .text-input:focus { border-color: #FF6B35; }
+    input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(1); cursor: pointer; }
+    
+    .start-btn { width: 100%; padding: 16px; background: linear-gradient(135deg, #FF6B35, #FF8E53); border: none; border-radius: 10px; color: #000; font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 3px; cursor: pointer; box-shadow: 0 6px 25px rgba(255, 107, 53, 0.4); }
+    .start-btn:active { transform: scale(0.98); }
+    .start-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    
+    .features { display: flex; justify-content: space-around; margin-top: 20px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .feature { display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: 10px; color: #888; }
+    .feature-icon { font-size: 22px; }
+    .error-text { color: #FF4757; font-size: 12px; margin-bottom: 12px; text-align: center; }
+    .success-text { color: #00FF88; font-size: 12px; margin-bottom: 12px; text-align: center; }
+
+    .cal-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; }
+    .cal-title { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 2px; }
+    .cal-sub { font-size: 13px; color: #888; margin-top: 2px; }
+    .squad-btn { padding: 10px 16px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; color: #FFF; font-size: 13px; cursor: pointer; }
+    .squad-btn.in-squad { background: rgba(0, 255, 136, 0.1); border-color: rgba(0, 255, 136, 0.3); }
+    
+    .progress-section { margin-bottom: 16px; }
+    .progress-bar { height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden; }
+    .progress-fill { height: 100%; background: linear-gradient(90deg, #00FF88, #00D9FF); border-radius: 3px; transition: width 0.5s; }
+    .progress-stats { display: flex; justify-content: space-between; margin-top: 6px; font-size: 11px; color: #888; }
+    
+    .legend { display: flex; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
+    .legend-item { display: flex; align-items: center; gap: 5px; font-size: 10px; color: #888; }
+    .legend-dot { width: 8px; height: 8px; border-radius: 50%; }
+    
+    .calendar-grid { display: flex; flex-direction: column; gap: 6px; }
+    .week-row { display: flex; gap: 5px; align-items: center; }
+    .week-label { width: 26px; font-size: 10px; color: #555; }
+    .day-cell { flex: 1; aspect-ratio: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border: 2px solid transparent; border-radius: 6px; cursor: pointer; position: relative; min-width: 32px; font-family: 'Bebas Neue', sans-serif; }
+    .day-cell:active { transform: scale(0.95); }
+    .day-cell.completed { background: rgba(0, 255, 136, 0.15); border-color: #00FF88; }
+    .day-cell.today { background: rgba(255, 107, 53, 0.2); border-color: #FF6B35; box-shadow: 0 0 15px rgba(255, 107, 53, 0.4); }
+    .day-cell.missed { background: rgba(255, 71, 87, 0.15); border-color: #FF4757; }
+    .day-cell.future { opacity: 0.5; }
+    .day-cell.rest { background: rgba(100, 100, 255, 0.1); }
+    .day-num { font-size: 13px; font-weight: bold; }
+    .checkmark { font-size: 8px; color: #00FF88; position: absolute; top: 1px; right: 3px; }
+    .rest-mark { font-size: 7px; color: #8888FF; position: absolute; bottom: 1px; }
+    
+    .reset-btn { width: 100%; padding: 12px; margin-top: 16px; background: transparent; border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; color: #888; cursor: pointer; font-size: 13px; }
+
+    .workout-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+    .back-btn { padding: 8px 14px; background: rgba(255,255,255,0.1); border: none; border-radius: 8px; color: #FFF; cursor: pointer; font-size: 13px; }
+    .day-badge { text-align: center; font-family: 'Bebas Neue', sans-serif; }
+    .day-badge .day { font-size: 18px; }
+    .day-badge .type { font-size: 11px; color: #FF6B35; letter-spacing: 2px; }
+    .already-done { color: #00FF88; font-size: 11px; }
+    
+    .total-time-badge { text-align: center; padding: 8px 16px; background: rgba(0, 255, 136, 0.1); border: 1px solid rgba(0, 255, 136, 0.3); border-radius: 20px; margin-bottom: 16px; font-size: 12px; color: #00FF88; }
+    
+    .workout-progress { height: 3px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; margin-bottom: 6px; }
+    .workout-progress-fill { height: 100%; background: linear-gradient(90deg, #FF6B35, #00FF88); transition: width 0.3s; }
+    .exercise-count { text-align: center; font-size: 11px; color: #888; margin-bottom: 20px; }
+    
+    .timer-section { display: flex; justify-content: center; margin-bottom: 20px; }
+    .timer-circle { width: 170px; height: 170px; border-radius: 50%; border: 5px solid #FF6B35; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); }
+    .timer-circle.resting { border-color: #00FF88; }
+    .timer-label { font-family: 'Bebas Neue', sans-serif; font-size: 13px; letter-spacing: 3px; opacity: 0.7; margin-bottom: 5px; }
+    .timer-time { font-family: 'Bebas Neue', sans-serif; font-size: 48px; letter-spacing: 3px; }
+    
+    .exercise-info { text-align: center; margin-bottom: 12px; }
+    .exercise-name { font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 2px; margin-bottom: 6px; }
+    .exercise-hint { font-size: 12px; color: #888; }
+    
+    .exercise-desc { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 14px; margin-bottom: 20px; text-align: center; }
+    .exercise-desc-title { font-size: 10px; color: #FF6B35; letter-spacing: 2px; margin-bottom: 6px; text-transform: uppercase; }
+    .exercise-desc-text { font-size: 13px; color: #CCC; line-height: 1.5; }
+    
+    .workout-controls { display: flex; gap: 10px; margin-bottom: 20px; }
+    .play-btn { flex: 2; padding: 16px; border: none; border-radius: 10px; color: #000; font-family: 'Bebas Neue', sans-serif; font-size: 16px; letter-spacing: 2px; cursor: pointer; background: #00FF88; }
+    .play-btn.running { background: #FF4757; }
+    .skip-btn { flex: 1; padding: 16px; background: rgba(255,255,255,0.1); border: none; border-radius: 10px; color: #FFF; font-size: 13px; cursor: pointer; }
+    
+    .up-next { background: rgba(255,255,255,0.03); border-radius: 14px; padding: 14px; margin-bottom: 14px; }
+    .up-next-title { font-family: 'Bebas Neue', sans-serif; font-size: 11px; letter-spacing: 2px; color: #888; margin-bottom: 8px; }
+    .up-next-item { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 12px; }
+    .up-next-item:last-child { border-bottom: none; }
+    .up-next-dur { color: #888; }
+    
+    .restart-btn { width: 100%; padding: 12px; background: transparent; border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; color: #888; cursor: pointer; font-size: 13px; }
+
+    .complete-screen { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 80vh; text-align: center; }
+    .confetti { font-size: 70px; margin-bottom: 15px; }
+    .complete-title { font-family: 'Bebas Neue', sans-serif; font-size: 42px; background: linear-gradient(135deg, #00FF88, #00D9FF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 8px; }
+    .complete-sub { font-size: 15px; color: #888; margin-bottom: 25px; }
+    .complete-badge { display: flex; align-items: center; gap: 8px; padding: 14px 20px; background: rgba(255, 183, 71, 0.1); border: 1px solid rgba(255, 183, 71, 0.3); border-radius: 50px; margin-bottom: 30px; }
+    .badge-icon { font-size: 22px; }
+    .back-to-cal { padding: 14px 28px; background: linear-gradient(135deg, #00FF88, #00D9FF); border: none; border-radius: 10px; color: #000; font-family: 'Bebas Neue', sans-serif; font-size: 15px; letter-spacing: 2px; cursor: pointer; }
+
+    .squad-header { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+    .squad-title { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 2px; }
+    
+    .squad-tabs { display: flex; gap: 10px; margin-bottom: 20px; }
+    .squad-tab { flex: 1; padding: 12px; background: rgba(255,255,255,0.05); border: 2px solid rgba(255,255,255,0.1); border-radius: 10px; color: #888; font-family: 'Bebas Neue', sans-serif; font-size: 14px; letter-spacing: 2px; cursor: pointer; text-align: center; }
+    .squad-tab.active { background: rgba(255, 107, 53, 0.2); border-color: #FF6B35; color: #FFF; }
+    
+    .squad-panel { display: none; }
+    .squad-panel.active { display: block; }
+    
+    .squad-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 24px; text-align: center; }
+    .card-title { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 2px; margin-bottom: 8px; }
+    .card-desc { font-size: 13px; color: #888; margin-bottom: 16px; }
+    .create-btn { width: 100%; padding: 14px; background: linear-gradient(135deg, #00FF88, #00D9FF); border: none; border-radius: 10px; color: #000; font-family: 'Bebas Neue', sans-serif; font-size: 15px; letter-spacing: 2px; cursor: pointer; }
+    .create-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .code-input { width: 100%; padding: 18px; background: rgba(255,255,255,0.05); border: 2px solid rgba(255,255,255,0.1); border-radius: 10px; color: #FFF; font-family: 'Bebas Neue', sans-serif; font-size: 22px; text-align: center; letter-spacing: 6px; margin-bottom: 12px; text-transform: uppercase; }
+    .code-input:focus { border-color: #FF6B35; outline: none; }
+    .join-btn { width: 100%; padding: 14px; background: linear-gradient(135deg, #FF6B35, #FF8E53); border: none; border-radius: 10px; color: #000; font-family: 'Bebas Neue', sans-serif; font-size: 15px; letter-spacing: 2px; cursor: pointer; }
+    .join-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    
+    .code-box { background: rgba(0, 255, 136, 0.1); border: 2px solid rgba(0, 255, 136, 0.3); border-radius: 14px; padding: 18px; text-align: center; margin-bottom: 10px; }
+    .code-label { display: block; font-size: 10px; letter-spacing: 2px; color: #888; margin-bottom: 6px; }
+    .code-value { display: block; font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 6px; color: #00FF88; margin-bottom: 10px; }
+    .copy-btn { padding: 8px 16px; background: rgba(255,255,255,0.1); border: none; border-radius: 6px; color: #FFF; cursor: pointer; font-size: 12px; }
+    .share-hint { text-align: center; font-size: 12px; color: #888; margin-bottom: 24px; }
+    
+    .sync-status { text-align: center; font-size: 11px; color: #00FF88; margin-bottom: 16px; padding: 8px; background: rgba(0, 255, 136, 0.1); border-radius: 8px; }
+    
+    .members-section { margin-bottom: 24px; }
+    .members-title { font-family: 'Bebas Neue', sans-serif; font-size: 13px; letter-spacing: 2px; color: #888; margin-bottom: 12px; }
+    .member-card { display: flex; gap: 14px; padding: 14px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; margin-bottom: 10px; }
+    .member-avatar { width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, #FF6B35, #FF8E53); display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 22px; flex-shrink: 0; }
+    .member-info { flex: 1; }
+    .member-name { display: block; font-size: 15px; margin-bottom: 6px; }
+    .member-stats { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
+    .stat-badge { font-size: 10px; color: #888; }
+    .mini-progress { height: 3px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; }
+    .mini-progress-fill { height: 100%; background: linear-gradient(90deg, #00FF88, #00D9FF); }
+    
+    .leave-btn { width: 100%; padding: 12px; background: transparent; border: 1px solid rgba(255, 71, 87, 0.3); border-radius: 10px; color: #FF4757; cursor: pointer; font-size: 13px; }
+    
+    .loading-spinner { display: inline-block; width: 16px; height: 16px; border: 2px solid rgba(255,255,255,0.3); border-top-color: #FFF; border-radius: 50%; animation: spin 0.8s linear infinite; margin-right: 8px; vertical-align: middle; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+
+<!-- LANDING PAGE -->
+<div id="landingPage" class="page landing">
+  <div class="fire">🔥</div>
+  <h1 class="main-title">75 DAY</h1>
+  <h2 class="sub-title">HARD</h2>
+  <p class="tagline">Glutes & Abs • No Equipment • 30 Min/Day</p>
+  
+  <div class="form-card">
+    <h3 class="form-title">START YOUR TRANSFORMATION</h3>
+    
+    <div class="input-group">
+      <label class="input-label">Your Name</label>
+      <input type="text" id="nameInput" class="text-input" placeholder="Enter your name">
+    </div>
+    
+    <div class="input-group">
+      <label class="input-label">Start Date</label>
+      <input type="date" id="dateInput" class="text-input">
+    </div>
+    
+    <p id="errorMsg" class="error-text hide"></p>
+    
+    <button id="startBtn" class="start-btn" onclick="startChallenge()">BEGIN CHALLENGE</button>
+    
+    <div class="features">
+      <div class="feature"><span class="feature-icon">💪</span><span>Targeted Workouts</span></div>
+      <div class="feature"><span class="feature-icon">⏱️</span><span>Built-in Timers</span></div>
+      <div class="feature"><span class="feature-icon">👥</span><span>Real-time Squad Sync</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- CALENDAR PAGE -->
+<div id="calendarPage" class="page hide">
+  <div class="cal-header">
+    <div>
+      <h1 class="cal-title" id="calGreeting">Hey! 👋</h1>
+      <p class="cal-sub" id="calDayCount">Day 1 of 75</p>
+    </div>
+    <button class="squad-btn" id="squadBtn" onclick="showSquad()">👥 Squad</button>
+  </div>
+  
+  <div class="progress-section">
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-stats">
+      <span id="completedCount">0 completed</span>
+      <span id="remainingCount">75 remaining</span>
+    </div>
+  </div>
+  
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#00FF88"></div><span>Done</span></div>
+    <div class="legend-item"><div class="legend-dot" style="background:#FF6B35"></div><span>Today</span></div>
+    <div class="legend-item"><div class="legend-dot" style="background:#FF4757"></div><span>Missed</span></div>
+    <div class="legend-item"><div class="legend-dot" style="background:#2D3748"></div><span>Soon</span></div>
+  </div>
+  
+  <div class="calendar-grid" id="calendarGrid"></div>
+  
+  <button class="reset-btn" onclick="resetChallenge()">🔄 Reset Challenge</button>
+</div>
+
+<!-- WORKOUT PAGE -->
+<div id="workoutPage" class="page hide">
+  <div class="workout-header">
+    <button class="back-btn" onclick="showCalendar()">← Back</button>
+    <div class="day-badge">
+      <div class="day" id="workoutDay">Day 1</div>
+      <div class="type" id="workoutType">Glute Burner</div>
+    </div>
+    <span class="already-done hide" id="alreadyDone">✓ Done</span>
+  </div>
+  
+  <div class="total-time-badge" id="totalTimeBadge">⏱️ Total: ~30 min</div>
+  
+  <div class="workout-progress"><div class="workout-progress-fill" id="workoutProgressFill"></div></div>
+  <p class="exercise-count" id="exerciseCount">Exercise 1 of 12</p>
+  
+  <div class="timer-section">
+    <div class="timer-circle" id="timerCircle">
+      <span class="timer-label" id="timerLabel">WORK</span>
+      <span class="timer-time" id="timerTime">0:45</span>
+    </div>
+  </div>
+  
+  <div class="exercise-info">
+    <h2 class="exercise-name" id="exerciseName">Glute Bridges</h2>
+    <p class="exercise-hint" id="exerciseHint">15s rest after</p>
+  </div>
+  
+  <div class="exercise-desc">
+    <div class="exercise-desc-title">How To Do It</div>
+    <div class="exercise-desc-text" id="exerciseDescText">Instructions will appear here.</div>
+  </div>
+  
+  <div class="workout-controls">
+    <button class="play-btn" id="playBtn" onclick="toggleTimer()">▶ START</button>
+    <button class="skip-btn" onclick="skipExercise()">Skip →</button>
+  </div>
+  
+  <div class="up-next">
+    <h4 class="up-next-title">Coming Up:</h4>
+    <div id="upNextList"></div>
+  </div>
+  
+  <button class="restart-btn" onclick="restartWorkout()">🔄 Restart Workout</button>
+</div>
+
+<!-- COMPLETE PAGE -->
+<div id="completePage" class="page hide">
+  <div class="complete-screen">
+    <div class="confetti">🎉</div>
+    <h1 class="complete-title" id="completeTitle">DAY 1 COMPLETE!</h1>
+    <p class="complete-sub" id="completeSub">Glute Burner crushed!</p>
+    <div class="complete-badge"><span class="badge-icon">🏆</span><span>+1 Day Conquered</span></div>
+    <button class="back-to-cal" onclick="showCalendar()">Back to Calendar</button>
+  </div>
+</div>
+
+<!-- SQUAD PAGE -->
+<div id="squadPage" class="page hide">
+  <div class="squad-header">
+    <button class="back-btn" onclick="showCalendar()">← Back</button>
+    <h1 class="squad-title">Workout Squad</h1>
+  </div>
+  
+  <div id="squadNoCode">
+    <div class="squad-tabs">
+      <button class="squad-tab active" onclick="switchSquadTab('create')">Create</button>
+      <button class="squad-tab" onclick="switchSquadTab('join')">Join</button>
+    </div>
+    
+    <div id="createPanel" class="squad-panel active">
+      <div class="squad-card">
+        <h3 class="card-title">🚀 Create a Squad</h3>
+        <p class="card-desc">Start a new squad and invite your friends to join you!</p>
+        <button id="createSquadBtn" class="create-btn" onclick="createSquad()">Create Squad</button>
+      </div>
+    </div>
+    
+    <div id="joinPanel" class="squad-panel">
+      <div class="squad-card">
+        <h3 class="card-title">🤝 Join a Squad</h3>
+        <p class="card-desc">Enter the 6-letter code from your friend</p>
+        <input type="text" id="joinCodeInput" class="code-input" placeholder="ABCDEF" maxlength="6" oninput="this.value = this.value.toUpperCase()">
+        <p id="squadError" class="error-text hide"></p>
+        <button id="joinSquadBtn" class="join-btn" onclick="joinSquad()">Join Squad</button>
+      </div>
+    </div>
+  </div>
+  
+  <div id="squadActive" class="hide">
+    <div class="code-box">
+      <span class="code-label">Squad Code</span>
+      <span class="code-value" id="squadCodeDisplay">ABC123</span>
+      <button class="copy-btn" onclick="copyCode()">📋 Copy</button>
+    </div>
+    <p class="share-hint">Share this code with friends so they can join!</p>
+    
+    <div class="sync-status" id="syncStatus">🔄 Syncing with squad members...</div>
+    
+    <div class="members-section">
+      <h3 class="members-title">Squad Members (<span id="memberCount">1</span>)</h3>
+      <div id="membersList"></div>
+    </div>
+    
+    <button class="leave-btn" onclick="leaveSquad()">Leave Squad</button>
+  </div>
+</div>
+
+<script>
+// ============ CONFIG ============
+// IMPORTANT: Change this to your Railway backend URL after deploying!
+var API_URL = localStorage.getItem('75day_api_url') || '';
+
+// ============ DATA ============
+var userData = null;
+var squadCode = null;
+var squadMembers = [];
+var currentDay = null;
+var currentExercise = 0;
+var timeLeft = 0;
+var isResting = false;
+var isRunning = false;
+var timerInterval = null;
+var syncInterval = null;
+
+// ============ EXERCISE DESCRIPTIONS ============
+var exerciseDescriptions = {
+  'Glute Bridges': 'Lie on back, knees bent, feet flat. Push hips up by squeezing glutes. Hold at top, then lower slowly.',
+  'Single Leg Bridge (L)': 'Same as glute bridge but extend right leg straight. Push up using only left foot. Keep hips level.',
+  'Single Leg Bridge (R)': 'Same as glute bridge but extend left leg straight. Push up using only right foot. Keep hips level.',
+  'Donkey Kicks (L)': 'On all fours, kick left leg back and up toward ceiling. Keep knee bent 90°. Squeeze glute at top.',
+  'Donkey Kicks (R)': 'On all fours, kick right leg back and up toward ceiling. Keep knee bent 90°. Squeeze glute at top.',
+  'Fire Hydrants (L)': 'On all fours, lift left knee out to the side like a dog at a hydrant. Keep knee bent. Lower with control.',
+  'Fire Hydrants (R)': 'On all fours, lift right knee out to the side like a dog at a hydrant. Keep knee bent. Lower with control.',
+  'Sumo Squats': 'Wide stance, toes pointed out. Squat down keeping knees over toes. Push through heels to stand.',
+  'Pulse Squats': 'Get into squat position. Stay low and pulse up and down in small movements. Don\'t fully stand up.',
+  'Curtsy Lunges': 'Step one leg behind and across like a curtsy. Lower down, then push back to start. Alternate legs.',
+  'Standing Kickbacks (L)': 'Stand tall, kick left leg straight back. Squeeze glute at the top. Keep core tight for balance.',
+  'Standing Kickbacks (R)': 'Stand tall, kick right leg straight back. Squeeze glute at the top. Keep core tight for balance.',
+  'Frog Pumps': 'Lie on back, soles of feet together, knees out wide. Thrust hips up squeezing glutes. Lower and repeat.',
+  'Clamshells (L)': 'Lie on right side, knees bent. Keep feet together, lift left knee up like a clamshell opening. Lower slowly.',
+  'Clamshells (R)': 'Lie on left side, knees bent. Keep feet together, lift right knee up like a clamshell opening. Lower slowly.',
+  'Crunches': 'Lie on back, knees bent. Curl shoulders off floor toward knees. Keep lower back pressed down.',
+  'Bicycle Crunches': 'Lie on back, hands behind head. Bring opposite elbow to knee while extending other leg. Alternate sides.',
+  'Leg Raises': 'Lie flat, legs straight. Lift legs up to 90° keeping them straight. Lower slowly without touching floor.',
+  'Flutter Kicks': 'Lie on back, legs straight and slightly raised. Kick legs up and down in small, quick movements.',
+  'Mountain Climbers': 'Start in plank position. Drive knees toward chest one at a time, like running in place.',
+  'Plank Hold': 'Hold push-up position on forearms. Keep body in straight line from head to heels. Don\'t let hips sag.',
+  'Side Plank (L)': 'Lie on right side, prop up on right forearm. Lift hips so body forms straight line. Hold steady.',
+  'Side Plank (R)': 'Lie on left side, prop up on left forearm. Lift hips so body forms straight line. Hold steady.',
+  'Dead Bug': 'Lie on back, arms up, knees at 90°. Lower opposite arm and leg toward floor. Return and switch sides.',
+  'Reverse Crunches': 'Lie on back, knees bent. Curl knees toward chest, lifting hips off floor. Lower with control.',
+  'Russian Twists': 'Sit with knees bent, lean back slightly. Rotate torso side to side, touching floor beside hips.',
+  'Heel Taps': 'Lie on back, knees bent, feet flat. Crunch up and reach to tap each heel alternately.',
+  'V-Ups': 'Lie flat, arms overhead. Lift legs and torso together forming a V shape. Reach hands toward feet.',
+  'Scissor Kicks': 'Lie on back, legs raised. Cross legs over each other in scissor motion. Keep lower back pressed down.',
+  'High Knees': 'Run in place, driving knees up high toward chest. Pump arms and maintain fast pace.',
+  'Light Stretching': 'Gently stretch all major muscle groups. Hold each stretch 20-30 seconds. Breathe deeply.',
+  'Deep Breathing': 'Inhale slowly through nose for 4 counts, hold for 4, exhale through mouth for 6. Repeat.',
+  'Foam Rolling': 'If you have a foam roller, roll out sore muscles. If not, use a tennis ball or just do self-massage.',
+  'Gentle Walking': 'Take an easy walk. Focus on posture and breathing. This is active recovery, not a workout.',
+  'Meditation': 'Sit or lie comfortably. Close eyes, focus on breath. When mind wanders, gently return to breath.',
+  'Rest & Breathe': 'Take deep breaths. Shake out your muscles. Prepare for the next exercise.'
+};
+
+// ============ WORKOUTS ============
+var gluteExercises = [
+  { name: 'Glute Bridges', duration: 45, rest: 15 },
+  { name: 'Single Leg Bridge (L)', duration: 30, rest: 10 },
+  { name: 'Single Leg Bridge (R)', duration: 30, rest: 15 },
+  { name: 'Donkey Kicks (L)', duration: 40, rest: 10 },
+  { name: 'Donkey Kicks (R)', duration: 40, rest: 15 },
+  { name: 'Fire Hydrants (L)', duration: 40, rest: 10 },
+  { name: 'Fire Hydrants (R)', duration: 40, rest: 15 },
+  { name: 'Sumo Squats', duration: 45, rest: 15 },
+  { name: 'Pulse Squats', duration: 40, rest: 15 },
+  { name: 'Curtsy Lunges', duration: 45, rest: 15 },
+  { name: 'Standing Kickbacks (L)', duration: 35, rest: 10 },
+  { name: 'Standing Kickbacks (R)', duration: 35, rest: 15 },
+  { name: 'Frog Pumps', duration: 45, rest: 15 },
+  { name: 'Clamshells (L)', duration: 40, rest: 10 },
+  { name: 'Clamshells (R)', duration: 40, rest: 15 }
+];
+
+var absExercises = [
+  { name: 'Crunches', duration: 45, rest: 15 },
+  { name: 'Bicycle Crunches', duration: 45, rest: 15 },
+  { name: 'Leg Raises', duration: 40, rest: 15 },
+  { name: 'Flutter Kicks', duration: 40, rest: 15 },
+  { name: 'Mountain Climbers', duration: 45, rest: 15 },
+  { name: 'Plank Hold', duration: 45, rest: 15 },
+  { name: 'Side Plank (L)', duration: 30, rest: 10 },
+  { name: 'Side Plank (R)', duration: 30, rest: 15 },
+  { name: 'Dead Bug', duration: 40, rest: 15 },
+  { name: 'Reverse Crunches', duration: 40, rest: 15 },
+  { name: 'Russian Twists', duration: 45, rest: 15 },
+  { name: 'Heel Taps', duration: 40, rest: 15 },
+  { name: 'V-Ups', duration: 35, rest: 15 },
+  { name: 'Scissor Kicks', duration: 40, rest: 15 },
+  { name: 'High Knees', duration: 45, rest: 15 }
+];
+
+function seededRandom(seed) {
+  var x = Math.sin(seed) * 10000;
+  return x - Math.floor(x);
+}
+
+function shuffleWithSeed(arr, seed) {
+  var shuffled = arr.slice();
+  for (var i = shuffled.length - 1; i > 0; i--) {
+    var j = Math.floor(seededRandom(seed + i) * (i + 1));
+    var temp = shuffled[i];
+    shuffled[i] = shuffled[j];
+    shuffled[j] = temp;
+  }
+  return shuffled;
+}
+
+function getWorkout(day) {
+  var weekDay = ((day - 1) % 7) + 1;
+  var isRestDay = weekDay === 4 || weekDay === 7;
+  
+  if (isRestDay) {
+    return {
+      day: day, isRestDay: true, title: 'Active Recovery',
+      exercises: [
+        { name: 'Light Stretching', duration: 300, rest: 0 },
+        { name: 'Deep Breathing', duration: 300, rest: 0 },
+        { name: 'Foam Rolling', duration: 300, rest: 0 },
+        { name: 'Gentle Walking', duration: 600, rest: 0 },
+        { name: 'Meditation', duration: 300, rest: 0 }
+      ]
+    };
+  }
+  
+  var focus = day % 3;
+  var exercises = [];
+  var title = '';
+  
+  if (focus === 1) {
+    title = 'Glute Burner';
+    var g = shuffleWithSeed(gluteExercises, day * 100);
+    var a = shuffleWithSeed(absExercises, day * 200);
+    exercises = g.slice(0, 8).concat(a.slice(0, 4));
+  } else if (focus === 2) {
+    title = 'Core Crusher';
+    var g = shuffleWithSeed(gluteExercises, day * 300);
+    var a = shuffleWithSeed(absExercises, day * 400);
+    exercises = a.slice(0, 8).concat(g.slice(0, 4));
+  } else {
+    title = 'Total Tone';
+    var g = shuffleWithSeed(gluteExercises, day * 500);
+    var a = shuffleWithSeed(absExercises, day * 600);
+    exercises = [];
+    for (var i = 0; i < 6; i++) {
+      exercises.push(g[i], a[i]);
+    }
+  }
+  
+  return { day: day, isRestDay: false, title: title, exercises: exercises };
+}
+
+function getTotalWorkoutTime(workout) {
+  var total = 0;
+  for (var i = 0; i < workout.exercises.length; i++) {
+    total += workout.exercises[i].duration + workout.exercises[i].rest;
+  }
+  return Math.round(total / 60);
+}
+
+// ============ API HELPERS ============
+async function apiCall(endpoint, method, body) {
+  if (!API_URL) {
+    console.log('No API URL set, using localStorage fallback');
+    return null;
+  }
+  
+  try {
+    var options = {
+      method: method || 'GET',
+      headers: { 'Content-Type': 'application/json' }
+    };
+    if (body) options.body = JSON.stringify(body);
+    
+    var response = await fetch(API_URL + endpoint, options);
+    if (!response.ok) {
+      var error = await response.json();
+      throw new Error(error.error || 'API error');
+    }
+    return await response.json();
+  } catch (err) {
+    console.error('API call failed:', err.message);
+    throw err;
+  }
+}
+
+// ============ LOCAL STORAGE HELPERS ============
+function saveLocal() {
+  localStorage.setItem('75day_user', JSON.stringify(userData));
+  localStorage.setItem('75day_squad', squadCode || '');
+  localStorage.setItem('75day_members', JSON.stringify(squadMembers));
+}
+
+function loadLocal() {
+  try {
+    var u = localStorage.getItem('75day_user');
+    var s = localStorage.getItem('75day_squad');
+    var m = localStorage.getItem('75day_members');
+    if (u) userData = JSON.parse(u);
+    if (s) squadCode = s;
+    if (m) squadMembers = JSON.parse(m);
+  } catch(e) {}
+}
+
+// ============ HELPERS ============
+function formatTime(seconds) {
+  var mins = Math.floor(seconds / 60);
+  var secs = seconds % 60;
+  return mins + ':' + (secs < 10 ? '0' : '') + secs;
+}
+
+function showPage(pageId) {
+  var pages = document.querySelectorAll('.page');
+  for (var i = 0; i < pages.length; i++) {
+    pages[i].classList.add('hide');
+  }
+  document.getElementById(pageId).classList.remove('hide');
+}
+
+function setLoading(btnId, loading) {
+  var btn = document.getElementById(btnId);
+  if (btn) {
+    btn.disabled = loading;
+    if (loading) {
+      btn.dataset.originalText = btn.textContent;
+      btn.innerHTML = '<span class="loading-spinner"></span>Loading...';
+    } else if (btn.dataset.originalText) {
+      btn.textContent = btn.dataset.originalText;
+    }
+  }
+}
+
+// ============ LANDING ============
+async function startChallenge() {
+  var name = document.getElementById('nameInput').value.trim();
+  var date = document.getElementById('dateInput').value;
+  var errorEl = document.getElementById('errorMsg');
+  
+  if (!name) {
+    errorEl.textContent = 'Please enter your name';
+    errorEl.classList.remove('hide');
+    return;
+  }
+  if (!date) {
+    errorEl.textContent = 'Please select a start date';
+    errorEl.classList.remove('hide');
+    return;
+  }
+  
+  errorEl.classList.add('hide');
+  setLoading('startBtn', true);
+  
+  var id = Date.now().toString();
+  
+  userData = {
+    id: id,
+    name: name,
+    startDate: date,
+    completedDays: []
+  };
+  
+  // Try API first, fall back to local
+  if (API_URL) {
+    try {
+      var result = await apiCall('/api/users', 'POST', { id: id, name: name, startDate: date });
+      userData.completedDays = result.completed_days || [];
+      squadCode = result.squad_code || null;
+    } catch (err) {
+      console.log('API failed, using local storage');
+    }
+  }
+  
+  saveLocal();
+  setLoading('startBtn', false);
+  showCalendar();
+}
+
+// ============ CALENDAR ============
+function showCalendar() {
+  if (!userData) {
+    showPage('landingPage');
+    return;
+  }
+  
+  // Stop any sync intervals when leaving squad page
+  if (syncInterval) {
+    clearInterval(syncInterval);
+    syncInterval = null;
+  }
+  
+  showPage('calendarPage');
+  renderCalendar();
+}
+
+function renderCalendar() {
+  document.getElementById('calGreeting').textContent = 'Hey ' + userData.name + '! 👋';
+  
+  var completed = userData.completedDays.length;
+  document.getElementById('calDayCount').textContent = 'Day ' + Math.min(completed + 1, 75) + ' of 75';
+  document.getElementById('progressFill').style.width = ((completed / 75) * 100) + '%';
+  document.getElementById('completedCount').textContent = completed + ' completed';
+  document.getElementById('remainingCount').textContent = (75 - completed) + ' remaining';
+  
+  // Update squad button
+  var squadBtn = document.getElementById('squadBtn');
+  if (squadCode) {
+    squadBtn.textContent = '👥 ' + squadCode;
+    squadBtn.classList.add('in-squad');
+  } else {
+    squadBtn.textContent = '👥 Squad';
+    squadBtn.classList.remove('in-squad');
+  }
+  
+  var grid = document.getElementById('calendarGrid');
+  grid.innerHTML = '';
+  
+  var startDate = new Date(userData.startDate);
+  var today = new Date();
+  today.setHours(0, 0, 0, 0);
+  
+  for (var week = 0; week < 11; week++) {
+    var row = document.createElement('div');
+    row.className = 'week-row';
+    
+    var label = document.createElement('span');
+    label.className = 'week-label';
+    label.textContent = 'W' + (week + 1);
+    row.appendChild(label);
+    
+    for (var d = 0; d < 7; d++) {
+      var day = week * 7 + d + 1;
+      if (day > 75) {
+        var empty = document.createElement('div');
+        empty.className = 'day-cell';
+        empty.style.visibility = 'hidden';
+        row.appendChild(empty);
+        continue;
+      }
+      
+      var dayDate = new Date(startDate);
+      dayDate.setDate(dayDate.getDate() + day - 1);
+      dayDate.setHours(0, 0, 0, 0);
+      
+      var isCompleted = userData.completedDays.indexOf(day) !== -1;
+      var isToday = dayDate.getTime() === today.getTime();
+      var isPast = dayDate < today;
+      var isFuture = dayDate > today;
+      var isMissed = isPast && !isCompleted;
+      var workout = getWorkout(day);
+      
+      var cell = document.createElement('button');
+      cell.className = 'day-cell';
+      if (isCompleted) cell.classList.add('completed');
+      if (isToday) cell.classList.add('today');
+      if (isMissed) cell.classList.add('missed');
+      if (isFuture) cell.classList.add('future');
+      if (workout.isRestDay) cell.classList.add('rest');
+      
+      cell.innerHTML = '<span class="day-num">' + day + '</span>' +
+        (isCompleted ? '<span class="checkmark">✓</span>' : '') +
+        (workout.isRestDay ? '<span class="rest-mark">R</span>' : '');
+      
+      (function(dayNum) {
+        cell.onclick = function() { showWorkout(dayNum); };
+      })(day);
+      
+      row.appendChild(cell);
+    }
+    
+    grid.appendChild(row);
+  }
+}
+
+async function resetChallenge() {
+  if (confirm('Reset your challenge? This deletes all progress.')) {
+    if (API_URL && userData) {
+      try {
+        await apiCall('/api/users/' + userData.id, 'DELETE');
+      } catch (err) {}
+    }
+    
+    localStorage.removeItem('75day_user');
+    localStorage.removeItem('75day_squad');
+    localStorage.removeItem('75day_members');
+    
+    userData = null;
+    squadCode = null;
+    squadMembers = [];
+    
+    document.getElementById('nameInput').value = '';
+    showPage('landingPage');
+  }
+}
+
+// ============ WORKOUT ============
+function showWorkout(day) {
+  currentDay = day;
+  currentExercise = 0;
+  isResting = false;
+  isRunning = false;
+  clearInterval(timerInterval);
+  
+  var workout = getWorkout(day);
+  timeLeft = workout.exercises[0].duration;
+  
+  document.getElementById('workoutDay').textContent = 'Day ' + day;
+  document.getElementById('workoutType').textContent = workout.title;
+  document.getElementById('totalTimeBadge').textContent = '⏱️ Total: ~' + getTotalWorkoutTime(workout) + ' min';
+  
+  var isDone = userData.completedDays.indexOf(day) !== -1;
+  document.getElementById('alreadyDone').classList.toggle('hide', !isDone);
+  
+  showPage('workoutPage');
+  renderWorkout();
+}
+
+function renderWorkout() {
+  var workout = getWorkout(currentDay);
+  var exercise = workout.exercises[currentExercise];
+  var total = workout.exercises.length;
+  
+  var progress = ((currentExercise + (isResting ? 0.5 : 0)) / total) * 100;
+  document.getElementById('workoutProgressFill').style.width = progress + '%';
+  document.getElementById('exerciseCount').textContent = 'Exercise ' + (currentExercise + 1) + ' of ' + total;
+  
+  var circle = document.getElementById('timerCircle');
+  if (isResting) {
+    circle.classList.add('resting');
+  } else {
+    circle.classList.remove('resting');
+  }
+  document.getElementById('timerLabel').textContent = isResting ? 'REST' : 'WORK';
+  document.getElementById('timerTime').textContent = formatTime(timeLeft);
+  
+  var exerciseName = isResting ? 'Rest & Breathe' : exercise.name;
+  document.getElementById('exerciseName').textContent = exerciseName;
+  document.getElementById('exerciseHint').textContent = (!isResting && exercise.rest > 0) ? exercise.rest + 's rest after' : '';
+  
+  var desc = exerciseDescriptions[exerciseName] || 'Follow the exercise name and give it your all!';
+  document.getElementById('exerciseDescText').textContent = desc;
+  
+  var playBtn = document.getElementById('playBtn');
+  playBtn.textContent = isRunning ? '⏸ PAUSE' : '▶ START';
+  if (isRunning) {
+    playBtn.classList.add('running');
+  } else {
+    playBtn.classList.remove('running');
+  }
+  
+  var upNextList = document.getElementById('upNextList');
+  upNextList.innerHTML = '';
+  var upcoming = workout.exercises.slice(currentExercise + 1, currentExercise + 4);
+  for (var i = 0; i < upcoming.length; i++) {
+    var ex = upcoming[i];
+    var item = document.createElement('div');
+    item.className = 'up-next-item';
+    item.innerHTML = '<span>' + ex.name + '</span><span class="up-next-dur">' + ex.duration + 's</span>';
+    upNextList.appendChild(item);
+  }
+}
+
+function toggleTimer() {
+  isRunning = !isRunning;
+  
+  if (isRunning) {
+    timerInterval = setInterval(function() {
+      timeLeft--;
+      
+      if (timeLeft <= 0) {
+        var workout = getWorkout(currentDay);
+        var exercise = workout.exercises[currentExercise];
+        
+        if (isResting) {
+          if (currentExercise < workout.exercises.length - 1) {
+            currentExercise++;
+            timeLeft = workout.exercises[currentExercise].duration;
+            isResting = false;
+          } else {
+            completeWorkout();
+            return;
+          }
+        } else {
+          if (exercise.rest > 0) {
+            timeLeft = exercise.rest;
+            isResting = true;
+          } else if (currentExercise < workout.exercises.length - 1) {
+            currentExercise++;
+            timeLeft = workout.exercises[currentExercise].duration;
+          } else {
+            completeWorkout();
+            return;
+          }
+        }
+      }
+      
+      renderWorkout();
+    }, 1000);
+  } else {
+    clearInterval(timerInterval);
+  }
+  
+  renderWorkout();
+}
+
+function skipExercise() {
+  var workout = getWorkout(currentDay);
+  
+  if (currentExercise < workout.exercises.length - 1) {
+    currentExercise++;
+    timeLeft = workout.exercises[currentExercise].duration;
+    isResting = false;
+    renderWorkout();
+  } else {
+    completeWorkout();
+  }
+}
+
+function restartWorkout() {
+  currentExercise = 0;
+  isResting = false;
+  isRunning = false;
+  clearInterval(timerInterval);
+  
+  var workout = getWorkout(currentDay);
+  timeLeft = workout.exercises[0].duration;
+  renderWorkout();
+}
+
+async function completeWorkout() {
+  isRunning = false;
+  clearInterval(timerInterval);
+  
+  if (userData.completedDays.indexOf(currentDay) === -1) {
+    userData.completedDays.push(currentDay);
+    
+    // Sync to API
+    if (API_URL) {
+      try {
+        var result = await apiCall('/api/users/' + userData.id + '/complete', 'POST', { day: currentDay });
+        userData.completedDays = result.completed_days || userData.completedDays;
+      } catch (err) {
+        console.log('API sync failed, saved locally');
+      }
+    }
+    
+    saveLocal();
+  }
+  
+  var workout = getWorkout(currentDay);
+  document.getElementById('completeTitle').textContent = 'DAY ' + currentDay + ' COMPLETE!';
+  document.getElementById('completeSub').textContent = workout.title + ' crushed!';
+  showPage('completePage');
+}
+
+// ============ SQUAD ============
+function showSquad() {
+  showPage('squadPage');
+  renderSquad();
+  
+  // Start sync interval if in a squad
+  if (squadCode && API_URL) {
+    loadSquadMembers();
+    syncInterval = setInterval(loadSquadMembers, 5000);
+  }
+}
+
+function switchSquadTab(tab) {
+  var tabs = document.querySelectorAll('.squad-tab');
+  var panels = document.querySelectorAll('.squad-panel');
+  
+  for (var i = 0; i < tabs.length; i++) {
+    tabs[i].classList.remove('active');
+  }
+  for (var i = 0; i < panels.length; i++) {
+    panels[i].classList.remove('active');
+  }
+  
+  if (tab === 'create') {
+    tabs[0].classList.add('active');
+    document.getElementById('createPanel').classList.add('active');
+  } else {
+    tabs[1].classList.add('active');
+    document.getElementById('joinPanel').classList.add('active');
+  }
+}
+
+function renderSquad() {
+  var hasSquad = squadCode && squadCode.length > 0;
+  
+  document.getElementById('squadNoCode').classList.toggle('hide', hasSquad);
+  document.getElementById('squadActive').classList.toggle('hide', !hasSquad);
+  
+  if (hasSquad) {
+    document.getElementById('squadCodeDisplay').textContent = squadCode;
+    document.getElementById('memberCount').textContent = squadMembers.length || 1;
+    
+    var list = document.getElementById('membersList');
+    list.innerHTML = '';
+    
+    var members = squadMembers.length > 0 ? squadMembers : [userData];
+    
+    for (var i = 0; i < members.length; i++) {
+      var member = members[i];
+      var card = document.createElement('div');
+      card.className = 'member-card';
+      var completed = 0;
+      if (member.completed_days) {
+        completed = member.completed_days.length;
+      } else if (member.completedDays) {
+        completed = member.completedDays.length;
+      }
+      var isYou = member.id === userData.id;
+      var memberName = member.name || 'Unknown';
+      var initial = memberName.charAt(0).toUpperCase();
+      
+      card.innerHTML = '<div class="member-avatar">' + initial + '</div>' +
+        '<div class="member-info">' +
+        '<span class="member-name">' + memberName + (isYou ? ' (You)' : '') + '</span>' +
+        '<div class="member-stats"><span class="stat-badge">🔥 ' + completed + '/75</span></div>' +
+        '<div class="mini-progress"><div class="mini-progress-fill" style="width:' + ((completed / 75) * 100) + '%"></div></div>' +
+        '</div>';
+      list.appendChild(card);
+    }
+    
+    // Update sync status
+    var syncStatus = document.getElementById('syncStatus');
+    if (API_URL) {
+      syncStatus.textContent = '✅ Live sync active - updates every 5 seconds';
+      syncStatus.style.display = 'block';
+    } else {
+      syncStatus.textContent = '⚠️ Offline mode - squad sync requires backend';
+      syncStatus.style.display = 'block';
+    }
+  }
+}
+
+async function loadSquadMembers() {
+  if (!squadCode || !API_URL) return;
+  
+  try {
+    var members = await apiCall('/api/squads/' + squadCode + '/members', 'GET');
+    squadMembers = members;
+    saveLocal();
+    renderSquad();
+  } catch (err) {
+    console.log('Failed to load squad members:', err.message);
+  }
+}
+
+function generateCode() {
+  var chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  var code = '';
+  for (var i = 0; i < 6; i++) {
+    code += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return code;
+}
+
+async function createSquad() {
+  setLoading('createSquadBtn', true);
+  
+  if (API_URL) {
+    try {
+      var result = await apiCall('/api/squads', 'POST', { userId: userData.id });
+      squadCode = result.code;
+      squadMembers = [userData];
+      saveLocal();
+      
+      // Start sync
+      loadSquadMembers();
+      syncInterval = setInterval(loadSquadMembers, 5000);
+      
+      setLoading('createSquadBtn', false);
+      renderSquad();
+      return;
+    } catch (err) {
+      console.log('API create squad failed:', err.message);
+    }
+  }
+  
+  // Fallback to local
+  squadCode = generateCode();
+  squadMembers = [{
+    id: userData.id,
+    name: userData.name,
+    startDate: userData.startDate,
+    completedDays: userData.completedDays.slice()
+  }];
+  saveLocal();
+  setLoading('createSquadBtn', false);
+  renderSquad();
+}
+
+async function joinSquad() {
+  var code = document.getElementById('joinCodeInput').value.toUpperCase().trim();
+  var errorEl = document.getElementById('squadError');
+  
+  if (!code || code.length !== 6) {
+    errorEl.textContent = 'Please enter a 6-letter code';
+    errorEl.classList.remove('hide');
+    return;
+  }
+  
+  errorEl.classList.add('hide');
+  setLoading('joinSquadBtn', true);
+  
+  if (API_URL) {
+    try {
+      var result = await apiCall('/api/squads/' + code + '/join', 'POST', { userId: userData.id });
+      squadCode = result.code;
+      saveLocal();
+      
+      // Load members and start sync
+      await loadSquadMembers();
+      syncInterval = setInterval(loadSquadMembers, 5000);
+      
+      setLoading('joinSquadBtn', false);
+      document.getElementById('joinCodeInput').value = '';
+      renderSquad();
+      return;
+    } catch (err) {
+      errorEl.textContent = err.message || 'Squad not found';
+      errorEl.classList.remove('hide');
+      setLoading('joinSquadBtn', false);
+      return;
+    }
+  }
+  
+  // Fallback to local
+  squadCode = code;
+  if (squadMembers.findIndex(function(m) { return m.id === userData.id; }) === -1) {
+    squadMembers.push({
+      id: userData.id,
+      name: userData.name,
+      startDate: userData.startDate,
+      completedDays: userData.completedDays.slice()
+    });
+  }
+  saveLocal();
+  setLoading('joinSquadBtn', false);
+  document.getElementById('joinCodeInput').value = '';
+  renderSquad();
+}
+
+function copyCode() {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(squadCode).then(function() {
+      alert('Code copied! Share "' + squadCode + '" with your friends.');
+    });
+  } else {
+    prompt('Copy this code:', squadCode);
+  }
+}
+
+async function leaveSquad() {
+  if (!confirm('Leave this squad?')) return;
+  
+  if (API_URL && squadCode) {
+    try {
+      await apiCall('/api/squads/' + squadCode + '/leave', 'POST', { userId: userData.id });
+    } catch (err) {}
+  }
+  
+  squadCode = null;
+  squadMembers = [];
+  saveLocal();
+  
+  if (syncInterval) {
+    clearInterval(syncInterval);
+    syncInterval = null;
+  }
+  
+  renderSquad();
+}
+
+// ============ INIT ============
+async function init() {
+  loadLocal();
+  
+  // Set default date to today
+  var today = new Date();
+  var yyyy = today.getFullYear();
+  var mm = String(today.getMonth() + 1).padStart(2, '0');
+  var dd = String(today.getDate()).padStart(2, '0');
+  document.getElementById('dateInput').value = yyyy + '-' + mm + '-' + dd;
+  
+  // Try to sync with API if user exists
+  if (userData && API_URL) {
+    try {
+      var result = await apiCall('/api/users/' + userData.id, 'GET');
+      userData.completedDays = result.completed_days || [];
+      squadCode = result.squad_code || squadCode;
+      saveLocal();
+    } catch (err) {
+      console.log('Could not sync with API');
+    }
+  }
+  
+  if (userData) {
+    showCalendar();
+  } else {
+    showPage('landingPage');
+  }
+}
+
+init();
+</script>
+
+</body>
+</html>
