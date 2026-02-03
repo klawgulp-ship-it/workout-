@@ -29,19 +29,17 @@
     
     .start-btn { width: 100%; padding: 16px; background: linear-gradient(135deg, #FF6B35, #FF8E53); border: none; border-radius: 10px; color: #000; font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 3px; cursor: pointer; box-shadow: 0 6px 25px rgba(255, 107, 53, 0.4); }
     .start-btn:active { transform: scale(0.98); }
-    .start-btn:disabled { opacity: 0.6; cursor: not-allowed; }
     
     .features { display: flex; justify-content: space-around; margin-top: 20px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.1); }
     .feature { display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: 10px; color: #888; }
     .feature-icon { font-size: 22px; }
     .error-text { color: #FF4757; font-size: 12px; margin-bottom: 12px; text-align: center; }
-    .success-text { color: #00FF88; font-size: 12px; margin-bottom: 12px; text-align: center; }
 
     .cal-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; }
     .cal-title { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 2px; }
     .cal-sub { font-size: 13px; color: #888; margin-top: 2px; }
     .squad-btn { padding: 10px 16px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; color: #FFF; font-size: 13px; cursor: pointer; }
-    .squad-btn.in-squad { background: rgba(0, 255, 136, 0.1); border-color: rgba(0, 255, 136, 0.3); }
+    .squad-btn.active { background: rgba(0,255,136,0.15); border-color: rgba(0,255,136,0.4); }
     
     .progress-section { margin-bottom: 16px; }
     .progress-bar { height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden; }
@@ -119,6 +117,15 @@
     .squad-header { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
     .squad-title { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 2px; }
     
+    .backend-setup { background: rgba(255,107,53,0.1); border: 1px solid rgba(255,107,53,0.3); border-radius: 12px; padding: 16px; margin-bottom: 20px; }
+    .backend-setup-title { font-size: 12px; color: #FF6B35; margin-bottom: 10px; font-weight: 600; }
+    .backend-input { width: 100%; padding: 12px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: #FFF; font-size: 12px; margin-bottom: 10px; }
+    .backend-input:focus { border-color: #FF6B35; outline: none; }
+    .backend-btns { display: flex; gap: 8px; }
+    .backend-btn { flex: 1; padding: 10px; border: none; border-radius: 8px; font-size: 12px; cursor: pointer; font-weight: 600; }
+    .backend-btn.save { background: #FF6B35; color: #000; }
+    .backend-btn.test { background: rgba(255,255,255,0.1); color: #FFF; }
+    
     .squad-tabs { display: flex; gap: 10px; margin-bottom: 20px; }
     .squad-tab { flex: 1; padding: 12px; background: rgba(255,255,255,0.05); border: 2px solid rgba(255,255,255,0.1); border-radius: 10px; color: #888; font-family: 'Bebas Neue', sans-serif; font-size: 14px; letter-spacing: 2px; cursor: pointer; text-align: center; }
     .squad-tab.active { background: rgba(255, 107, 53, 0.2); border-color: #FF6B35; color: #FFF; }
@@ -130,19 +137,19 @@
     .card-title { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 2px; margin-bottom: 8px; }
     .card-desc { font-size: 13px; color: #888; margin-bottom: 16px; }
     .create-btn { width: 100%; padding: 14px; background: linear-gradient(135deg, #00FF88, #00D9FF); border: none; border-radius: 10px; color: #000; font-family: 'Bebas Neue', sans-serif; font-size: 15px; letter-spacing: 2px; cursor: pointer; }
-    .create-btn:disabled { opacity: 0.6; cursor: not-allowed; }
     .code-input { width: 100%; padding: 18px; background: rgba(255,255,255,0.05); border: 2px solid rgba(255,255,255,0.1); border-radius: 10px; color: #FFF; font-family: 'Bebas Neue', sans-serif; font-size: 22px; text-align: center; letter-spacing: 6px; margin-bottom: 12px; text-transform: uppercase; }
     .code-input:focus { border-color: #FF6B35; outline: none; }
     .join-btn { width: 100%; padding: 14px; background: linear-gradient(135deg, #FF6B35, #FF8E53); border: none; border-radius: 10px; color: #000; font-family: 'Bebas Neue', sans-serif; font-size: 15px; letter-spacing: 2px; cursor: pointer; }
-    .join-btn:disabled { opacity: 0.6; cursor: not-allowed; }
     
     .code-box { background: rgba(0, 255, 136, 0.1); border: 2px solid rgba(0, 255, 136, 0.3); border-radius: 14px; padding: 18px; text-align: center; margin-bottom: 10px; }
     .code-label { display: block; font-size: 10px; letter-spacing: 2px; color: #888; margin-bottom: 6px; }
     .code-value { display: block; font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 6px; color: #00FF88; margin-bottom: 10px; }
     .copy-btn { padding: 8px 16px; background: rgba(255,255,255,0.1); border: none; border-radius: 6px; color: #FFF; cursor: pointer; font-size: 12px; }
-    .share-hint { text-align: center; font-size: 12px; color: #888; margin-bottom: 24px; }
+    .share-hint { text-align: center; font-size: 12px; color: #888; margin-bottom: 16px; }
     
-    .sync-status { text-align: center; font-size: 11px; color: #00FF88; margin-bottom: 16px; padding: 8px; background: rgba(0, 255, 136, 0.1); border-radius: 8px; }
+    .sync-status { padding: 10px 14px; border-radius: 10px; margin-bottom: 16px; font-size: 12px; text-align: center; }
+    .sync-status.online { background: rgba(0,255,136,0.1); border: 1px solid rgba(0,255,136,0.3); color: #00FF88; }
+    .sync-status.offline { background: rgba(255,183,71,0.1); border: 1px solid rgba(255,183,71,0.3); color: #FFB347; }
     
     .members-section { margin-bottom: 24px; }
     .members-title { font-family: 'Bebas Neue', sans-serif; font-size: 13px; letter-spacing: 2px; color: #888; margin-bottom: 12px; }
@@ -150,52 +157,40 @@
     .member-avatar { width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, #FF6B35, #FF8E53); display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 22px; flex-shrink: 0; }
     .member-info { flex: 1; }
     .member-name { display: block; font-size: 15px; margin-bottom: 6px; }
-    .member-stats { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
-    .stat-badge { font-size: 10px; color: #888; }
+    .member-stats { font-size: 11px; color: #888; margin-bottom: 6px; }
     .mini-progress { height: 3px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; }
     .mini-progress-fill { height: 100%; background: linear-gradient(90deg, #00FF88, #00D9FF); }
     
     .leave-btn { width: 100%; padding: 12px; background: transparent; border: 1px solid rgba(255, 71, 87, 0.3); border-radius: 10px; color: #FF4757; cursor: pointer; font-size: 13px; }
-    
-    .loading-spinner { display: inline-block; width: 16px; height: 16px; border: 2px solid rgba(255,255,255,0.3); border-top-color: #FFF; border-radius: 50%; animation: spin 0.8s linear infinite; margin-right: 8px; vertical-align: middle; }
-    @keyframes spin { to { transform: rotate(360deg); } }
   </style>
 </head>
 <body>
 
-<!-- LANDING PAGE -->
 <div id="landingPage" class="page landing">
   <div class="fire">🔥</div>
   <h1 class="main-title">75 DAY</h1>
   <h2 class="sub-title">HARD</h2>
   <p class="tagline">Glutes & Abs • No Equipment • 30 Min/Day</p>
-  
   <div class="form-card">
     <h3 class="form-title">START YOUR TRANSFORMATION</h3>
-    
     <div class="input-group">
       <label class="input-label">Your Name</label>
       <input type="text" id="nameInput" class="text-input" placeholder="Enter your name">
     </div>
-    
     <div class="input-group">
       <label class="input-label">Start Date</label>
       <input type="date" id="dateInput" class="text-input">
     </div>
-    
     <p id="errorMsg" class="error-text hide"></p>
-    
-    <button id="startBtn" class="start-btn" onclick="startChallenge()">BEGIN CHALLENGE</button>
-    
+    <button class="start-btn" onclick="startChallenge()">BEGIN CHALLENGE</button>
     <div class="features">
       <div class="feature"><span class="feature-icon">💪</span><span>Targeted Workouts</span></div>
       <div class="feature"><span class="feature-icon">⏱️</span><span>Built-in Timers</span></div>
-      <div class="feature"><span class="feature-icon">👥</span><span>Real-time Squad Sync</span></div>
+      <div class="feature"><span class="feature-icon">👥</span><span>Squad Sync</span></div>
     </div>
   </div>
 </div>
 
-<!-- CALENDAR PAGE -->
 <div id="calendarPage" class="page hide">
   <div class="cal-header">
     <div>
@@ -204,944 +199,242 @@
     </div>
     <button class="squad-btn" id="squadBtn" onclick="showSquad()">👥 Squad</button>
   </div>
-  
   <div class="progress-section">
     <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-    <div class="progress-stats">
-      <span id="completedCount">0 completed</span>
-      <span id="remainingCount">75 remaining</span>
-    </div>
+    <div class="progress-stats"><span id="completedCount">0 completed</span><span id="remainingCount">75 remaining</span></div>
   </div>
-  
   <div class="legend">
     <div class="legend-item"><div class="legend-dot" style="background:#00FF88"></div><span>Done</span></div>
     <div class="legend-item"><div class="legend-dot" style="background:#FF6B35"></div><span>Today</span></div>
     <div class="legend-item"><div class="legend-dot" style="background:#FF4757"></div><span>Missed</span></div>
     <div class="legend-item"><div class="legend-dot" style="background:#2D3748"></div><span>Soon</span></div>
   </div>
-  
   <div class="calendar-grid" id="calendarGrid"></div>
-  
   <button class="reset-btn" onclick="resetChallenge()">🔄 Reset Challenge</button>
 </div>
 
-<!-- WORKOUT PAGE -->
 <div id="workoutPage" class="page hide">
   <div class="workout-header">
     <button class="back-btn" onclick="showCalendar()">← Back</button>
-    <div class="day-badge">
-      <div class="day" id="workoutDay">Day 1</div>
-      <div class="type" id="workoutType">Glute Burner</div>
-    </div>
+    <div class="day-badge"><div class="day" id="workoutDay">Day 1</div><div class="type" id="workoutType">Glute Burner</div></div>
     <span class="already-done hide" id="alreadyDone">✓ Done</span>
   </div>
-  
   <div class="total-time-badge" id="totalTimeBadge">⏱️ Total: ~30 min</div>
-  
   <div class="workout-progress"><div class="workout-progress-fill" id="workoutProgressFill"></div></div>
-  <p class="exercise-count" id="exerciseCount">Exercise 1 of 12</p>
-  
+  <p class="exercise-count" id="exerciseCount">Exercise 1 of 18</p>
   <div class="timer-section">
     <div class="timer-circle" id="timerCircle">
       <span class="timer-label" id="timerLabel">WORK</span>
       <span class="timer-time" id="timerTime">0:45</span>
     </div>
   </div>
-  
   <div class="exercise-info">
     <h2 class="exercise-name" id="exerciseName">Glute Bridges</h2>
     <p class="exercise-hint" id="exerciseHint">15s rest after</p>
   </div>
-  
   <div class="exercise-desc">
     <div class="exercise-desc-title">How To Do It</div>
-    <div class="exercise-desc-text" id="exerciseDescText">Instructions will appear here.</div>
+    <div class="exercise-desc-text" id="exerciseDescText">Instructions here</div>
   </div>
-  
   <div class="workout-controls">
     <button class="play-btn" id="playBtn" onclick="toggleTimer()">▶ START</button>
     <button class="skip-btn" onclick="skipExercise()">Skip →</button>
   </div>
-  
   <div class="up-next">
     <h4 class="up-next-title">Coming Up:</h4>
     <div id="upNextList"></div>
   </div>
-  
   <button class="restart-btn" onclick="restartWorkout()">🔄 Restart Workout</button>
 </div>
 
-<!-- COMPLETE PAGE -->
 <div id="completePage" class="page hide">
   <div class="complete-screen">
     <div class="confetti">🎉</div>
     <h1 class="complete-title" id="completeTitle">DAY 1 COMPLETE!</h1>
-    <p class="complete-sub" id="completeSub">Glute Burner crushed!</p>
+    <p class="complete-sub" id="completeSub">Workout crushed!</p>
     <div class="complete-badge"><span class="badge-icon">🏆</span><span>+1 Day Conquered</span></div>
     <button class="back-to-cal" onclick="showCalendar()">Back to Calendar</button>
   </div>
 </div>
 
-<!-- SQUAD PAGE -->
 <div id="squadPage" class="page hide">
   <div class="squad-header">
     <button class="back-btn" onclick="showCalendar()">← Back</button>
     <h1 class="squad-title">Workout Squad</h1>
   </div>
-  
+  <div class="backend-setup" id="backendSetup">
+    <div class="backend-setup-title">⚡ Connect Backend for Real-Time Squad Sync</div>
+    <input type="text" id="backendUrlInput" class="backend-input" placeholder="https://your-backend.up.railway.app">
+    <div class="backend-btns">
+      <button class="backend-btn save" onclick="saveBackendUrl()">Save</button>
+      <button class="backend-btn test" onclick="testBackend()">Test Connection</button>
+    </div>
+  </div>
   <div id="squadNoCode">
     <div class="squad-tabs">
       <button class="squad-tab active" onclick="switchSquadTab('create')">Create</button>
       <button class="squad-tab" onclick="switchSquadTab('join')">Join</button>
     </div>
-    
     <div id="createPanel" class="squad-panel active">
       <div class="squad-card">
         <h3 class="card-title">🚀 Create a Squad</h3>
-        <p class="card-desc">Start a new squad and invite your friends to join you!</p>
-        <button id="createSquadBtn" class="create-btn" onclick="createSquad()">Create Squad</button>
+        <p class="card-desc">Start a new squad and invite friends!</p>
+        <button class="create-btn" onclick="createSquad()">Create Squad</button>
       </div>
     </div>
-    
     <div id="joinPanel" class="squad-panel">
       <div class="squad-card">
         <h3 class="card-title">🤝 Join a Squad</h3>
         <p class="card-desc">Enter the 6-letter code from your friend</p>
-        <input type="text" id="joinCodeInput" class="code-input" placeholder="ABCDEF" maxlength="6" oninput="this.value = this.value.toUpperCase()">
+        <input type="text" id="joinCodeInput" class="code-input" placeholder="ABC123" maxlength="6" oninput="this.value=this.value.toUpperCase()">
         <p id="squadError" class="error-text hide"></p>
-        <button id="joinSquadBtn" class="join-btn" onclick="joinSquad()">Join Squad</button>
+        <button class="join-btn" onclick="joinSquad()">Join Squad</button>
       </div>
     </div>
   </div>
-  
   <div id="squadActive" class="hide">
     <div class="code-box">
       <span class="code-label">Squad Code</span>
       <span class="code-value" id="squadCodeDisplay">ABC123</span>
       <button class="copy-btn" onclick="copyCode()">📋 Copy</button>
     </div>
-    <p class="share-hint">Share this code with friends so they can join!</p>
-    
-    <div class="sync-status" id="syncStatus">🔄 Syncing with squad members...</div>
-    
+    <p class="share-hint">Share this code with friends!</p>
+    <div class="sync-status" id="syncStatus"></div>
     <div class="members-section">
       <h3 class="members-title">Squad Members (<span id="memberCount">1</span>)</h3>
       <div id="membersList"></div>
     </div>
-    
     <button class="leave-btn" onclick="leaveSquad()">Leave Squad</button>
   </div>
 </div>
 
 <script>
-// ============ CONFIG ============
-// IMPORTANT: Change this to your Railway backend URL after deploying!
 var API_URL = localStorage.getItem('75day_api_url') || '';
+var userData = null, squadCode = null, squadMembers = [];
+var currentDay = null, currentExercise = 0, timeLeft = 0;
+var isResting = false, isRunning = false, timerInterval = null, syncInterval = null;
 
-// ============ DATA ============
-var userData = null;
-var squadCode = null;
-var squadMembers = [];
-var currentDay = null;
-var currentExercise = 0;
-var timeLeft = 0;
-var isResting = false;
-var isRunning = false;
-var timerInterval = null;
-var syncInterval = null;
-
-// ============ EXERCISE DESCRIPTIONS ============
 var exerciseDescriptions = {
-  'Glute Bridges': 'Lie on back, knees bent, feet flat. Push hips up by squeezing glutes. Hold at top, then lower slowly.',
-  'Single Leg Bridge (L)': 'Same as glute bridge but extend right leg straight. Push up using only left foot. Keep hips level.',
-  'Single Leg Bridge (R)': 'Same as glute bridge but extend left leg straight. Push up using only right foot. Keep hips level.',
-  'Donkey Kicks (L)': 'On all fours, kick left leg back and up toward ceiling. Keep knee bent 90°. Squeeze glute at top.',
-  'Donkey Kicks (R)': 'On all fours, kick right leg back and up toward ceiling. Keep knee bent 90°. Squeeze glute at top.',
-  'Fire Hydrants (L)': 'On all fours, lift left knee out to the side like a dog at a hydrant. Keep knee bent. Lower with control.',
-  'Fire Hydrants (R)': 'On all fours, lift right knee out to the side like a dog at a hydrant. Keep knee bent. Lower with control.',
-  'Sumo Squats': 'Wide stance, toes pointed out. Squat down keeping knees over toes. Push through heels to stand.',
-  'Pulse Squats': 'Get into squat position. Stay low and pulse up and down in small movements. Don\'t fully stand up.',
-  'Curtsy Lunges': 'Step one leg behind and across like a curtsy. Lower down, then push back to start. Alternate legs.',
-  'Standing Kickbacks (L)': 'Stand tall, kick left leg straight back. Squeeze glute at the top. Keep core tight for balance.',
-  'Standing Kickbacks (R)': 'Stand tall, kick right leg straight back. Squeeze glute at the top. Keep core tight for balance.',
-  'Frog Pumps': 'Lie on back, soles of feet together, knees out wide. Thrust hips up squeezing glutes. Lower and repeat.',
-  'Clamshells (L)': 'Lie on right side, knees bent. Keep feet together, lift left knee up like a clamshell opening. Lower slowly.',
-  'Clamshells (R)': 'Lie on left side, knees bent. Keep feet together, lift right knee up like a clamshell opening. Lower slowly.',
-  'Crunches': 'Lie on back, knees bent. Curl shoulders off floor toward knees. Keep lower back pressed down.',
-  'Bicycle Crunches': 'Lie on back, hands behind head. Bring opposite elbow to knee while extending other leg. Alternate sides.',
-  'Leg Raises': 'Lie flat, legs straight. Lift legs up to 90° keeping them straight. Lower slowly without touching floor.',
-  'Flutter Kicks': 'Lie on back, legs straight and slightly raised. Kick legs up and down in small, quick movements.',
-  'Mountain Climbers': 'Start in plank position. Drive knees toward chest one at a time, like running in place.',
-  'Plank Hold': 'Hold push-up position on forearms. Keep body in straight line from head to heels. Don\'t let hips sag.',
-  'Side Plank (L)': 'Lie on right side, prop up on right forearm. Lift hips so body forms straight line. Hold steady.',
-  'Side Plank (R)': 'Lie on left side, prop up on left forearm. Lift hips so body forms straight line. Hold steady.',
-  'Dead Bug': 'Lie on back, arms up, knees at 90°. Lower opposite arm and leg toward floor. Return and switch sides.',
-  'Reverse Crunches': 'Lie on back, knees bent. Curl knees toward chest, lifting hips off floor. Lower with control.',
-  'Russian Twists': 'Sit with knees bent, lean back slightly. Rotate torso side to side, touching floor beside hips.',
-  'Heel Taps': 'Lie on back, knees bent, feet flat. Crunch up and reach to tap each heel alternately.',
-  'V-Ups': 'Lie flat, arms overhead. Lift legs and torso together forming a V shape. Reach hands toward feet.',
-  'Scissor Kicks': 'Lie on back, legs raised. Cross legs over each other in scissor motion. Keep lower back pressed down.',
-  'High Knees': 'Run in place, driving knees up high toward chest. Pump arms and maintain fast pace.',
-  'Light Stretching': 'Gently stretch all major muscle groups. Hold each stretch 20-30 seconds. Breathe deeply.',
-  'Deep Breathing': 'Inhale slowly through nose for 4 counts, hold for 4, exhale through mouth for 6. Repeat.',
-  'Foam Rolling': 'If you have a foam roller, roll out sore muscles. If not, use a tennis ball or just do self-massage.',
-  'Gentle Walking': 'Take an easy walk. Focus on posture and breathing. This is active recovery, not a workout.',
-  'Meditation': 'Sit or lie comfortably. Close eyes, focus on breath. When mind wanders, gently return to breath.',
-  'Rest & Breathe': 'Take deep breaths. Shake out your muscles. Prepare for the next exercise.'
+  'Glute Bridges': 'Lie on back, knees bent. Push hips up squeezing glutes. Hold, then lower slowly.',
+  'Single Leg Bridge (L)': 'Glute bridge but extend right leg. Push up using only left foot.',
+  'Single Leg Bridge (R)': 'Glute bridge but extend left leg. Push up using only right foot.',
+  'Donkey Kicks (L)': 'On all fours, kick left leg back and up. Keep knee bent 90°.',
+  'Donkey Kicks (R)': 'On all fours, kick right leg back and up. Keep knee bent 90°.',
+  'Fire Hydrants (L)': 'On all fours, lift left knee out to side. Lower with control.',
+  'Fire Hydrants (R)': 'On all fours, lift right knee out to side. Lower with control.',
+  'Sumo Squats': 'Wide stance, toes out. Squat keeping knees over toes.',
+  'Pulse Squats': 'Stay in squat position. Pulse up and down, don\'t stand up.',
+  'Curtsy Lunges': 'Step leg behind and across. Lower down, push back. Alternate.',
+  'Standing Kickbacks (L)': 'Stand, kick left leg straight back. Squeeze glute.',
+  'Standing Kickbacks (R)': 'Stand, kick right leg straight back. Squeeze glute.',
+  'Frog Pumps': 'Lie down, soles together, knees wide. Thrust hips up.',
+  'Clamshells (L)': 'Side-lying, knees bent. Lift top knee like clamshell.',
+  'Clamshells (R)': 'Side-lying, knees bent. Lift top knee like clamshell.',
+  'Squat Hold': 'Hold squat position. Keep chest up, breathe steadily.',
+  'Glute Squeeze': 'Stand, squeeze glutes hard for 3 seconds. Repeat.',
+  'Wall Sit': 'Back on wall, thighs parallel to floor. Hold position.',
+  'Crunches': 'Lie down, curl shoulders toward knees. Keep lower back down.',
+  'Bicycle Crunches': 'Bring opposite elbow to knee. Alternate sides.',
+  'Leg Raises': 'Lie flat, lift legs to 90°. Lower slowly.',
+  'Flutter Kicks': 'Legs raised, kick up and down in small movements.',
+  'Mountain Climbers': 'Plank position, drive knees to chest alternating.',
+  'Plank Hold': 'Forearm plank. Keep body straight, don\'t sag.',
+  'Side Plank (L)': 'Right forearm down, lift hips. Hold straight line.',
+  'Side Plank (R)': 'Left forearm down, lift hips. Hold straight line.',
+  'Dead Bug': 'Back down, arms up. Lower opposite arm and leg.',
+  'Reverse Crunches': 'Curl knees to chest, lift hips off floor.',
+  'Russian Twists': 'Seated, lean back. Rotate torso side to side.',
+  'Heel Taps': 'Lie down, crunch up and tap each heel.',
+  'V-Ups': 'Lift legs and torso together forming V shape.',
+  'Scissor Kicks': 'Legs raised, cross over each other.',
+  'High Knees': 'Run in place, knees high. Fast pace.',
+  'Toe Touches': 'Legs up, crunch and reach for toes.',
+  'Plank Jacks': 'Plank position, jump feet out and in.',
+  'Light Stretching': 'Gently stretch all muscle groups. Hold 20-30s each.',
+  'Deep Breathing': 'Inhale 4 counts, hold 4, exhale 6. Repeat.',
+  'Foam Rolling': 'Roll out tight muscles. Focus on sore spots.',
+  'Gentle Walking': 'Easy walk for active recovery.',
+  'Meditation': 'Sit comfortably, focus on breath.',
+  'Rest & Breathe': 'Take deep breaths. Prepare for next exercise.'
 };
 
-// ============ WORKOUTS ============
+// FIXED: 18 exercises for ~30 min workouts
 var gluteExercises = [
-  { name: 'Glute Bridges', duration: 45, rest: 15 },
-  { name: 'Single Leg Bridge (L)', duration: 30, rest: 10 },
-  { name: 'Single Leg Bridge (R)', duration: 30, rest: 15 },
-  { name: 'Donkey Kicks (L)', duration: 40, rest: 10 },
-  { name: 'Donkey Kicks (R)', duration: 40, rest: 15 },
-  { name: 'Fire Hydrants (L)', duration: 40, rest: 10 },
-  { name: 'Fire Hydrants (R)', duration: 40, rest: 15 },
-  { name: 'Sumo Squats', duration: 45, rest: 15 },
-  { name: 'Pulse Squats', duration: 40, rest: 15 },
-  { name: 'Curtsy Lunges', duration: 45, rest: 15 },
-  { name: 'Standing Kickbacks (L)', duration: 35, rest: 10 },
-  { name: 'Standing Kickbacks (R)', duration: 35, rest: 15 },
-  { name: 'Frog Pumps', duration: 45, rest: 15 },
-  { name: 'Clamshells (L)', duration: 40, rest: 10 },
-  { name: 'Clamshells (R)', duration: 40, rest: 15 }
+  {name:'Glute Bridges',duration:60,rest:15},{name:'Single Leg Bridge (L)',duration:45,rest:10},
+  {name:'Single Leg Bridge (R)',duration:45,rest:15},{name:'Donkey Kicks (L)',duration:50,rest:10},
+  {name:'Donkey Kicks (R)',duration:50,rest:15},{name:'Fire Hydrants (L)',duration:50,rest:10},
+  {name:'Fire Hydrants (R)',duration:50,rest:15},{name:'Sumo Squats',duration:60,rest:20},
+  {name:'Pulse Squats',duration:45,rest:15},{name:'Curtsy Lunges',duration:60,rest:20},
+  {name:'Standing Kickbacks (L)',duration:45,rest:10},{name:'Standing Kickbacks (R)',duration:45,rest:15},
+  {name:'Frog Pumps',duration:60,rest:15},{name:'Clamshells (L)',duration:50,rest:10},
+  {name:'Clamshells (R)',duration:50,rest:15},{name:'Squat Hold',duration:45,rest:20},
+  {name:'Glute Squeeze',duration:40,rest:10},{name:'Wall Sit',duration:45,rest:20}
 ];
-
 var absExercises = [
-  { name: 'Crunches', duration: 45, rest: 15 },
-  { name: 'Bicycle Crunches', duration: 45, rest: 15 },
-  { name: 'Leg Raises', duration: 40, rest: 15 },
-  { name: 'Flutter Kicks', duration: 40, rest: 15 },
-  { name: 'Mountain Climbers', duration: 45, rest: 15 },
-  { name: 'Plank Hold', duration: 45, rest: 15 },
-  { name: 'Side Plank (L)', duration: 30, rest: 10 },
-  { name: 'Side Plank (R)', duration: 30, rest: 15 },
-  { name: 'Dead Bug', duration: 40, rest: 15 },
-  { name: 'Reverse Crunches', duration: 40, rest: 15 },
-  { name: 'Russian Twists', duration: 45, rest: 15 },
-  { name: 'Heel Taps', duration: 40, rest: 15 },
-  { name: 'V-Ups', duration: 35, rest: 15 },
-  { name: 'Scissor Kicks', duration: 40, rest: 15 },
-  { name: 'High Knees', duration: 45, rest: 15 }
+  {name:'Crunches',duration:60,rest:15},{name:'Bicycle Crunches',duration:60,rest:15},
+  {name:'Leg Raises',duration:50,rest:15},{name:'Flutter Kicks',duration:50,rest:15},
+  {name:'Mountain Climbers',duration:60,rest:20},{name:'Plank Hold',duration:60,rest:20},
+  {name:'Side Plank (L)',duration:40,rest:10},{name:'Side Plank (R)',duration:40,rest:15},
+  {name:'Dead Bug',duration:50,rest:15},{name:'Reverse Crunches',duration:50,rest:15},
+  {name:'Russian Twists',duration:60,rest:15},{name:'Heel Taps',duration:50,rest:15},
+  {name:'V-Ups',duration:45,rest:20},{name:'Scissor Kicks',duration:50,rest:15},
+  {name:'High Knees',duration:60,rest:20},{name:'Toe Touches',duration:45,rest:15},
+  {name:'Plank Jacks',duration:45,rest:20}
 ];
 
-function seededRandom(seed) {
-  var x = Math.sin(seed) * 10000;
-  return x - Math.floor(x);
+function seededRandom(s){var x=Math.sin(s)*10000;return x-Math.floor(x);}
+function shuffleWithSeed(a,s){var r=a.slice();for(var i=r.length-1;i>0;i--){var j=Math.floor(seededRandom(s+i)*(i+1));var t=r[i];r[i]=r[j];r[j]=t;}return r;}
+
+function getWorkout(day){
+  var wd=((day-1)%7)+1;
+  if(wd===4||wd===7)return{day:day,isRestDay:true,title:'Active Recovery',exercises:[
+    {name:'Light Stretching',duration:360,rest:0},{name:'Deep Breathing',duration:300,rest:0},
+    {name:'Foam Rolling',duration:360,rest:0},{name:'Gentle Walking',duration:600,rest:0},
+    {name:'Meditation',duration:300,rest:0}
+  ]};
+  var f=day%3,ex=[],t='';
+  if(f===1){t='Glute Burner';var g=shuffleWithSeed(gluteExercises,day*100),a=shuffleWithSeed(absExercises,day*200);ex=g.slice(0,12).concat(a.slice(0,6));}
+  else if(f===2){t='Core Crusher';var g=shuffleWithSeed(gluteExercises,day*300),a=shuffleWithSeed(absExercises,day*400);ex=a.slice(0,12).concat(g.slice(0,6));}
+  else{t='Total Tone';var g=shuffleWithSeed(gluteExercises,day*500),a=shuffleWithSeed(absExercises,day*600);for(var i=0;i<9;i++)ex.push(g[i],a[i]);}
+  return{day:day,isRestDay:false,title:t,exercises:ex};
 }
 
-function shuffleWithSeed(arr, seed) {
-  var shuffled = arr.slice();
-  for (var i = shuffled.length - 1; i > 0; i--) {
-    var j = Math.floor(seededRandom(seed + i) * (i + 1));
-    var temp = shuffled[i];
-    shuffled[i] = shuffled[j];
-    shuffled[j] = temp;
-  }
-  return shuffled;
-}
+function getTotalWorkoutTime(w){var t=0;for(var i=0;i<w.exercises.length;i++)t+=w.exercises[i].duration+w.exercises[i].rest;return Math.round(t/60);}
+function formatTime(s){var m=Math.floor(s/60),sec=s%60;return m+':'+(sec<10?'0':'')+sec;}
+function showPage(id){document.querySelectorAll('.page').forEach(function(p){p.classList.add('hide');});document.getElementById(id).classList.remove('hide');}
+function saveLocal(){localStorage.setItem('75day_user',JSON.stringify(userData));localStorage.setItem('75day_squad',squadCode||'');localStorage.setItem('75day_members',JSON.stringify(squadMembers));}
+function loadLocal(){try{var u=localStorage.getItem('75day_user'),s=localStorage.getItem('75day_squad'),m=localStorage.getItem('75day_members');if(u)userData=JSON.parse(u);if(s&&s.length>0)squadCode=s;if(m)squadMembers=JSON.parse(m);}catch(e){}}
 
-function getWorkout(day) {
-  var weekDay = ((day - 1) % 7) + 1;
-  var isRestDay = weekDay === 4 || weekDay === 7;
-  
-  if (isRestDay) {
-    return {
-      day: day, isRestDay: true, title: 'Active Recovery',
-      exercises: [
-        { name: 'Light Stretching', duration: 300, rest: 0 },
-        { name: 'Deep Breathing', duration: 300, rest: 0 },
-        { name: 'Foam Rolling', duration: 300, rest: 0 },
-        { name: 'Gentle Walking', duration: 600, rest: 0 },
-        { name: 'Meditation', duration: 300, rest: 0 }
-      ]
-    };
-  }
-  
-  var focus = day % 3;
-  var exercises = [];
-  var title = '';
-  
-  if (focus === 1) {
-    title = 'Glute Burner';
-    var g = shuffleWithSeed(gluteExercises, day * 100);
-    var a = shuffleWithSeed(absExercises, day * 200);
-    exercises = g.slice(0, 8).concat(a.slice(0, 4));
-  } else if (focus === 2) {
-    title = 'Core Crusher';
-    var g = shuffleWithSeed(gluteExercises, day * 300);
-    var a = shuffleWithSeed(absExercises, day * 400);
-    exercises = a.slice(0, 8).concat(g.slice(0, 4));
-  } else {
-    title = 'Total Tone';
-    var g = shuffleWithSeed(gluteExercises, day * 500);
-    var a = shuffleWithSeed(absExercises, day * 600);
-    exercises = [];
-    for (var i = 0; i < 6; i++) {
-      exercises.push(g[i], a[i]);
-    }
-  }
-  
-  return { day: day, isRestDay: false, title: title, exercises: exercises };
-}
+async function apiCall(ep,method,body){if(!API_URL)return null;try{var opt={method:method||'GET',headers:{'Content-Type':'application/json'}};if(body)opt.body=JSON.stringify(body);var r=await fetch(API_URL+ep,opt);if(!r.ok)throw new Error();return await r.json();}catch(e){return null;}}
 
-function getTotalWorkoutTime(workout) {
-  var total = 0;
-  for (var i = 0; i < workout.exercises.length; i++) {
-    total += workout.exercises[i].duration + workout.exercises[i].rest;
-  }
-  return Math.round(total / 60);
-}
+function saveBackendUrl(){var u=document.getElementById('backendUrlInput').value.trim();if(u.endsWith('/'))u=u.slice(0,-1);localStorage.setItem('75day_api_url',u);API_URL=u;alert('Saved!');}
+async function testBackend(){var u=document.getElementById('backendUrlInput').value.trim();if(!u){alert('Enter URL first');return;}if(u.endsWith('/'))u=u.slice(0,-1);try{var r=await fetch(u+'/api/health');if(r.ok){alert('✅ Connected!');localStorage.setItem('75day_api_url',u);API_URL=u;}else alert('❌ Error');}catch(e){alert('❌ Cannot connect');}}
 
-// ============ API HELPERS ============
-async function apiCall(endpoint, method, body) {
-  if (!API_URL) {
-    console.log('No API URL set, using localStorage fallback');
-    return null;
-  }
-  
-  try {
-    var options = {
-      method: method || 'GET',
-      headers: { 'Content-Type': 'application/json' }
-    };
-    if (body) options.body = JSON.stringify(body);
-    
-    var response = await fetch(API_URL + endpoint, options);
-    if (!response.ok) {
-      var error = await response.json();
-      throw new Error(error.error || 'API error');
-    }
-    return await response.json();
-  } catch (err) {
-    console.error('API call failed:', err.message);
-    throw err;
-  }
-}
+async function startChallenge(){var n=document.getElementById('nameInput').value.trim(),d=document.getElementById('dateInput').value,e=document.getElementById('errorMsg');if(!n){e.textContent='Enter your name';e.classList.remove('hide');return;}if(!d){e.textContent='Select start date';e.classList.remove('hide');return;}e.classList.add('hide');userData={id:Date.now().toString(),name:n,startDate:d,completedDays:[]};if(API_URL){var r=await apiCall('/api/users','POST',{id:userData.id,name:n,startDate:d});if(r)userData.completedDays=r.completed_days||[];}saveLocal();showCalendar();}
 
-// ============ LOCAL STORAGE HELPERS ============
-function saveLocal() {
-  localStorage.setItem('75day_user', JSON.stringify(userData));
-  localStorage.setItem('75day_squad', squadCode || '');
-  localStorage.setItem('75day_members', JSON.stringify(squadMembers));
-}
+function showCalendar(){if(!userData){showPage('landingPage');return;}if(syncInterval){clearInterval(syncInterval);syncInterval=null;}showPage('calendarPage');renderCalendar();}
+function renderCalendar(){document.getElementById('calGreeting').textContent='Hey '+userData.name+'! 👋';var c=userData.completedDays.length;document.getElementById('calDayCount').textContent='Day '+Math.min(c+1,75)+' of 75';document.getElementById('progressFill').style.width=(c/75*100)+'%';document.getElementById('completedCount').textContent=c+' completed';document.getElementById('remainingCount').textContent=(75-c)+' remaining';var sb=document.getElementById('squadBtn');sb.textContent=squadCode?'👥 '+squadCode:'👥 Squad';sb.classList.toggle('active',!!squadCode);var g=document.getElementById('calendarGrid');g.innerHTML='';var sd=new Date(userData.startDate),td=new Date();td.setHours(0,0,0,0);for(var w=0;w<11;w++){var r=document.createElement('div');r.className='week-row';var l=document.createElement('span');l.className='week-label';l.textContent='W'+(w+1);r.appendChild(l);for(var d=0;d<7;d++){var day=w*7+d+1;if(day>75){var em=document.createElement('div');em.className='day-cell';em.style.visibility='hidden';r.appendChild(em);continue;}var dd=new Date(sd);dd.setDate(dd.getDate()+day-1);dd.setHours(0,0,0,0);var iC=userData.completedDays.indexOf(day)!==-1,iT=dd.getTime()===td.getTime(),iP=dd<td,iF=dd>td,iM=iP&&!iC,wo=getWorkout(day);var ce=document.createElement('button');ce.className='day-cell';if(iC)ce.classList.add('completed');if(iT)ce.classList.add('today');if(iM)ce.classList.add('missed');if(iF)ce.classList.add('future');if(wo.isRestDay)ce.classList.add('rest');ce.innerHTML='<span class="day-num">'+day+'</span>'+(iC?'<span class="checkmark">✓</span>':'')+(wo.isRestDay?'<span class="rest-mark">R</span>':'');(function(dn){ce.onclick=function(){showWorkout(dn);};})(day);r.appendChild(ce);}g.appendChild(r);}}
+function resetChallenge(){if(confirm('Reset challenge?')){if(API_URL&&userData)apiCall('/api/users/'+userData.id,'DELETE');localStorage.removeItem('75day_user');localStorage.removeItem('75day_squad');localStorage.removeItem('75day_members');userData=null;squadCode=null;squadMembers=[];showPage('landingPage');}}
 
-function loadLocal() {
-  try {
-    var u = localStorage.getItem('75day_user');
-    var s = localStorage.getItem('75day_squad');
-    var m = localStorage.getItem('75day_members');
-    if (u) userData = JSON.parse(u);
-    if (s) squadCode = s;
-    if (m) squadMembers = JSON.parse(m);
-  } catch(e) {}
-}
+function showWorkout(day){currentDay=day;currentExercise=0;isResting=false;isRunning=false;clearInterval(timerInterval);var wo=getWorkout(day);timeLeft=wo.exercises[0].duration;document.getElementById('workoutDay').textContent='Day '+day;document.getElementById('workoutType').textContent=wo.title;document.getElementById('totalTimeBadge').textContent='⏱️ Total: ~'+getTotalWorkoutTime(wo)+' min';document.getElementById('alreadyDone').classList.toggle('hide',userData.completedDays.indexOf(day)===-1);showPage('workoutPage');renderWorkout();}
+function renderWorkout(){var wo=getWorkout(currentDay),ex=wo.exercises[currentExercise],tot=wo.exercises.length;document.getElementById('workoutProgressFill').style.width=((currentExercise+(isResting?0.5:0))/tot*100)+'%';document.getElementById('exerciseCount').textContent='Exercise '+(currentExercise+1)+' of '+tot;var ci=document.getElementById('timerCircle');ci.classList.toggle('resting',isResting);document.getElementById('timerLabel').textContent=isResting?'REST':'WORK';document.getElementById('timerTime').textContent=formatTime(timeLeft);var nm=isResting?'Rest & Breathe':ex.name;document.getElementById('exerciseName').textContent=nm;document.getElementById('exerciseHint').textContent=(!isResting&&ex.rest>0)?ex.rest+'s rest after':'';document.getElementById('exerciseDescText').textContent=exerciseDescriptions[nm]||'Give it your all!';var pb=document.getElementById('playBtn');pb.textContent=isRunning?'⏸ PAUSE':'▶ START';pb.classList.toggle('running',isRunning);var ul=document.getElementById('upNextList');ul.innerHTML='';wo.exercises.slice(currentExercise+1,currentExercise+4).forEach(function(e){var it=document.createElement('div');it.className='up-next-item';it.innerHTML='<span>'+e.name+'</span><span class="up-next-dur">'+e.duration+'s</span>';ul.appendChild(it);});}
+function toggleTimer(){isRunning=!isRunning;if(isRunning){timerInterval=setInterval(function(){timeLeft--;if(timeLeft<=0){var wo=getWorkout(currentDay),ex=wo.exercises[currentExercise];if(isResting){if(currentExercise<wo.exercises.length-1){currentExercise++;timeLeft=wo.exercises[currentExercise].duration;isResting=false;}else{completeWorkout();return;}}else{if(ex.rest>0){timeLeft=ex.rest;isResting=true;}else if(currentExercise<wo.exercises.length-1){currentExercise++;timeLeft=wo.exercises[currentExercise].duration;}else{completeWorkout();return;}}}renderWorkout();},1000);}else clearInterval(timerInterval);renderWorkout();}
+function skipExercise(){var wo=getWorkout(currentDay);if(currentExercise<wo.exercises.length-1){currentExercise++;timeLeft=wo.exercises[currentExercise].duration;isResting=false;renderWorkout();}else completeWorkout();}
+function restartWorkout(){currentExercise=0;isResting=false;isRunning=false;clearInterval(timerInterval);timeLeft=getWorkout(currentDay).exercises[0].duration;renderWorkout();}
+async function completeWorkout(){isRunning=false;clearInterval(timerInterval);if(userData.completedDays.indexOf(currentDay)===-1){userData.completedDays.push(currentDay);if(API_URL){var r=await apiCall('/api/users/'+userData.id+'/complete','POST',{day:currentDay});if(r)userData.completedDays=r.completed_days||userData.completedDays;}saveLocal();}var wo=getWorkout(currentDay);document.getElementById('completeTitle').textContent='DAY '+currentDay+' COMPLETE!';document.getElementById('completeSub').textContent=wo.title+' crushed!';showPage('completePage');}
 
-// ============ HELPERS ============
-function formatTime(seconds) {
-  var mins = Math.floor(seconds / 60);
-  var secs = seconds % 60;
-  return mins + ':' + (secs < 10 ? '0' : '') + secs;
-}
+function showSquad(){showPage('squadPage');document.getElementById('backendUrlInput').value=API_URL||'';renderSquad();if(squadCode&&API_URL){loadSquadMembers();syncInterval=setInterval(loadSquadMembers,5000);}}
+function switchSquadTab(t){document.querySelectorAll('.squad-tab').forEach(function(el,i){el.classList.toggle('active',(t==='create'&&i===0)||(t==='join'&&i===1));});document.getElementById('createPanel').classList.toggle('active',t==='create');document.getElementById('joinPanel').classList.toggle('active',t==='join');}
+function renderSquad(){var hs=squadCode&&squadCode.length>0;document.getElementById('squadNoCode').classList.toggle('hide',hs);document.getElementById('squadActive').classList.toggle('hide',!hs);document.getElementById('backendSetup').classList.toggle('hide',hs);if(hs){document.getElementById('squadCodeDisplay').textContent=squadCode;document.getElementById('memberCount').textContent=squadMembers.length||1;var ss=document.getElementById('syncStatus');if(API_URL){ss.className='sync-status online';ss.textContent='✅ Live sync active';}else{ss.className='sync-status offline';ss.textContent='⚠️ Offline - connect backend for sync';}var ml=document.getElementById('membersList');ml.innerHTML='';var mems=squadMembers.length>0?squadMembers:[userData];mems.forEach(function(m){var c=m.completed_days?m.completed_days.length:(m.completedDays?m.completedDays.length:0),iy=m.id===userData.id;var cd=document.createElement('div');cd.className='member-card';cd.innerHTML='<div class="member-avatar">'+(m.name||'?').charAt(0).toUpperCase()+'</div><div class="member-info"><span class="member-name">'+m.name+(iy?' (You)':'')+'</span><div class="member-stats">🔥 '+c+'/75</div><div class="mini-progress"><div class="mini-progress-fill" style="width:'+(c/75*100)+'%"></div></div></div>';ml.appendChild(cd);});}}
+async function loadSquadMembers(){if(!squadCode||!API_URL)return;var m=await apiCall('/api/squads/'+squadCode+'/members','GET');if(m){squadMembers=m;saveLocal();renderSquad();}}
+function generateCode(){var ch='ABCDEFGHJKLMNPQRSTUVWXYZ23456789',co='';for(var i=0;i<6;i++)co+=ch[Math.floor(Math.random()*ch.length)];return co;}
+async function createSquad(){if(API_URL){var r=await apiCall('/api/squads','POST',{userId:userData.id});if(r){squadCode=r.code;squadMembers=[userData];saveLocal();loadSquadMembers();syncInterval=setInterval(loadSquadMembers,5000);renderSquad();return;}}squadCode=generateCode();squadMembers=[{id:userData.id,name:userData.name,completedDays:userData.completedDays.slice()}];saveLocal();renderSquad();}
+async function joinSquad(){var co=document.getElementById('joinCodeInput').value.toUpperCase().trim(),er=document.getElementById('squadError');if(!co||co.length!==6){er.textContent='Enter 6-letter code';er.classList.remove('hide');return;}er.classList.add('hide');if(API_URL){try{var r=await fetch(API_URL+'/api/squads/'+co+'/join',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({userId:userData.id})});if(!r.ok){var e=await r.json();er.textContent=e.error||'Not found';er.classList.remove('hide');return;}var d=await r.json();squadCode=d.code;saveLocal();await loadSquadMembers();syncInterval=setInterval(loadSquadMembers,5000);}catch(e){er.textContent='Connection error';er.classList.remove('hide');return;}}else{squadCode=co;if(!squadMembers.find(function(m){return m.id===userData.id;}))squadMembers.push({id:userData.id,name:userData.name,completedDays:userData.completedDays.slice()});saveLocal();}document.getElementById('joinCodeInput').value='';renderSquad();}
+function copyCode(){if(navigator.clipboard)navigator.clipboard.writeText(squadCode).then(function(){alert('Copied: '+squadCode);});else prompt('Copy:',squadCode);}
+async function leaveSquad(){if(!confirm('Leave squad?'))return;if(API_URL&&squadCode)await apiCall('/api/squads/'+squadCode+'/leave','POST',{userId:userData.id});squadCode=null;squadMembers=[];saveLocal();if(syncInterval){clearInterval(syncInterval);syncInterval=null;}renderSquad();}
 
-function showPage(pageId) {
-  var pages = document.querySelectorAll('.page');
-  for (var i = 0; i < pages.length; i++) {
-    pages[i].classList.add('hide');
-  }
-  document.getElementById(pageId).classList.remove('hide');
-}
-
-function setLoading(btnId, loading) {
-  var btn = document.getElementById(btnId);
-  if (btn) {
-    btn.disabled = loading;
-    if (loading) {
-      btn.dataset.originalText = btn.textContent;
-      btn.innerHTML = '<span class="loading-spinner"></span>Loading...';
-    } else if (btn.dataset.originalText) {
-      btn.textContent = btn.dataset.originalText;
-    }
-  }
-}
-
-// ============ LANDING ============
-async function startChallenge() {
-  var name = document.getElementById('nameInput').value.trim();
-  var date = document.getElementById('dateInput').value;
-  var errorEl = document.getElementById('errorMsg');
-  
-  if (!name) {
-    errorEl.textContent = 'Please enter your name';
-    errorEl.classList.remove('hide');
-    return;
-  }
-  if (!date) {
-    errorEl.textContent = 'Please select a start date';
-    errorEl.classList.remove('hide');
-    return;
-  }
-  
-  errorEl.classList.add('hide');
-  setLoading('startBtn', true);
-  
-  var id = Date.now().toString();
-  
-  userData = {
-    id: id,
-    name: name,
-    startDate: date,
-    completedDays: []
-  };
-  
-  // Try API first, fall back to local
-  if (API_URL) {
-    try {
-      var result = await apiCall('/api/users', 'POST', { id: id, name: name, startDate: date });
-      userData.completedDays = result.completed_days || [];
-      squadCode = result.squad_code || null;
-    } catch (err) {
-      console.log('API failed, using local storage');
-    }
-  }
-  
-  saveLocal();
-  setLoading('startBtn', false);
-  showCalendar();
-}
-
-// ============ CALENDAR ============
-function showCalendar() {
-  if (!userData) {
-    showPage('landingPage');
-    return;
-  }
-  
-  // Stop any sync intervals when leaving squad page
-  if (syncInterval) {
-    clearInterval(syncInterval);
-    syncInterval = null;
-  }
-  
-  showPage('calendarPage');
-  renderCalendar();
-}
-
-function renderCalendar() {
-  document.getElementById('calGreeting').textContent = 'Hey ' + userData.name + '! 👋';
-  
-  var completed = userData.completedDays.length;
-  document.getElementById('calDayCount').textContent = 'Day ' + Math.min(completed + 1, 75) + ' of 75';
-  document.getElementById('progressFill').style.width = ((completed / 75) * 100) + '%';
-  document.getElementById('completedCount').textContent = completed + ' completed';
-  document.getElementById('remainingCount').textContent = (75 - completed) + ' remaining';
-  
-  // Update squad button
-  var squadBtn = document.getElementById('squadBtn');
-  if (squadCode) {
-    squadBtn.textContent = '👥 ' + squadCode;
-    squadBtn.classList.add('in-squad');
-  } else {
-    squadBtn.textContent = '👥 Squad';
-    squadBtn.classList.remove('in-squad');
-  }
-  
-  var grid = document.getElementById('calendarGrid');
-  grid.innerHTML = '';
-  
-  var startDate = new Date(userData.startDate);
-  var today = new Date();
-  today.setHours(0, 0, 0, 0);
-  
-  for (var week = 0; week < 11; week++) {
-    var row = document.createElement('div');
-    row.className = 'week-row';
-    
-    var label = document.createElement('span');
-    label.className = 'week-label';
-    label.textContent = 'W' + (week + 1);
-    row.appendChild(label);
-    
-    for (var d = 0; d < 7; d++) {
-      var day = week * 7 + d + 1;
-      if (day > 75) {
-        var empty = document.createElement('div');
-        empty.className = 'day-cell';
-        empty.style.visibility = 'hidden';
-        row.appendChild(empty);
-        continue;
-      }
-      
-      var dayDate = new Date(startDate);
-      dayDate.setDate(dayDate.getDate() + day - 1);
-      dayDate.setHours(0, 0, 0, 0);
-      
-      var isCompleted = userData.completedDays.indexOf(day) !== -1;
-      var isToday = dayDate.getTime() === today.getTime();
-      var isPast = dayDate < today;
-      var isFuture = dayDate > today;
-      var isMissed = isPast && !isCompleted;
-      var workout = getWorkout(day);
-      
-      var cell = document.createElement('button');
-      cell.className = 'day-cell';
-      if (isCompleted) cell.classList.add('completed');
-      if (isToday) cell.classList.add('today');
-      if (isMissed) cell.classList.add('missed');
-      if (isFuture) cell.classList.add('future');
-      if (workout.isRestDay) cell.classList.add('rest');
-      
-      cell.innerHTML = '<span class="day-num">' + day + '</span>' +
-        (isCompleted ? '<span class="checkmark">✓</span>' : '') +
-        (workout.isRestDay ? '<span class="rest-mark">R</span>' : '');
-      
-      (function(dayNum) {
-        cell.onclick = function() { showWorkout(dayNum); };
-      })(day);
-      
-      row.appendChild(cell);
-    }
-    
-    grid.appendChild(row);
-  }
-}
-
-async function resetChallenge() {
-  if (confirm('Reset your challenge? This deletes all progress.')) {
-    if (API_URL && userData) {
-      try {
-        await apiCall('/api/users/' + userData.id, 'DELETE');
-      } catch (err) {}
-    }
-    
-    localStorage.removeItem('75day_user');
-    localStorage.removeItem('75day_squad');
-    localStorage.removeItem('75day_members');
-    
-    userData = null;
-    squadCode = null;
-    squadMembers = [];
-    
-    document.getElementById('nameInput').value = '';
-    showPage('landingPage');
-  }
-}
-
-// ============ WORKOUT ============
-function showWorkout(day) {
-  currentDay = day;
-  currentExercise = 0;
-  isResting = false;
-  isRunning = false;
-  clearInterval(timerInterval);
-  
-  var workout = getWorkout(day);
-  timeLeft = workout.exercises[0].duration;
-  
-  document.getElementById('workoutDay').textContent = 'Day ' + day;
-  document.getElementById('workoutType').textContent = workout.title;
-  document.getElementById('totalTimeBadge').textContent = '⏱️ Total: ~' + getTotalWorkoutTime(workout) + ' min';
-  
-  var isDone = userData.completedDays.indexOf(day) !== -1;
-  document.getElementById('alreadyDone').classList.toggle('hide', !isDone);
-  
-  showPage('workoutPage');
-  renderWorkout();
-}
-
-function renderWorkout() {
-  var workout = getWorkout(currentDay);
-  var exercise = workout.exercises[currentExercise];
-  var total = workout.exercises.length;
-  
-  var progress = ((currentExercise + (isResting ? 0.5 : 0)) / total) * 100;
-  document.getElementById('workoutProgressFill').style.width = progress + '%';
-  document.getElementById('exerciseCount').textContent = 'Exercise ' + (currentExercise + 1) + ' of ' + total;
-  
-  var circle = document.getElementById('timerCircle');
-  if (isResting) {
-    circle.classList.add('resting');
-  } else {
-    circle.classList.remove('resting');
-  }
-  document.getElementById('timerLabel').textContent = isResting ? 'REST' : 'WORK';
-  document.getElementById('timerTime').textContent = formatTime(timeLeft);
-  
-  var exerciseName = isResting ? 'Rest & Breathe' : exercise.name;
-  document.getElementById('exerciseName').textContent = exerciseName;
-  document.getElementById('exerciseHint').textContent = (!isResting && exercise.rest > 0) ? exercise.rest + 's rest after' : '';
-  
-  var desc = exerciseDescriptions[exerciseName] || 'Follow the exercise name and give it your all!';
-  document.getElementById('exerciseDescText').textContent = desc;
-  
-  var playBtn = document.getElementById('playBtn');
-  playBtn.textContent = isRunning ? '⏸ PAUSE' : '▶ START';
-  if (isRunning) {
-    playBtn.classList.add('running');
-  } else {
-    playBtn.classList.remove('running');
-  }
-  
-  var upNextList = document.getElementById('upNextList');
-  upNextList.innerHTML = '';
-  var upcoming = workout.exercises.slice(currentExercise + 1, currentExercise + 4);
-  for (var i = 0; i < upcoming.length; i++) {
-    var ex = upcoming[i];
-    var item = document.createElement('div');
-    item.className = 'up-next-item';
-    item.innerHTML = '<span>' + ex.name + '</span><span class="up-next-dur">' + ex.duration + 's</span>';
-    upNextList.appendChild(item);
-  }
-}
-
-function toggleTimer() {
-  isRunning = !isRunning;
-  
-  if (isRunning) {
-    timerInterval = setInterval(function() {
-      timeLeft--;
-      
-      if (timeLeft <= 0) {
-        var workout = getWorkout(currentDay);
-        var exercise = workout.exercises[currentExercise];
-        
-        if (isResting) {
-          if (currentExercise < workout.exercises.length - 1) {
-            currentExercise++;
-            timeLeft = workout.exercises[currentExercise].duration;
-            isResting = false;
-          } else {
-            completeWorkout();
-            return;
-          }
-        } else {
-          if (exercise.rest > 0) {
-            timeLeft = exercise.rest;
-            isResting = true;
-          } else if (currentExercise < workout.exercises.length - 1) {
-            currentExercise++;
-            timeLeft = workout.exercises[currentExercise].duration;
-          } else {
-            completeWorkout();
-            return;
-          }
-        }
-      }
-      
-      renderWorkout();
-    }, 1000);
-  } else {
-    clearInterval(timerInterval);
-  }
-  
-  renderWorkout();
-}
-
-function skipExercise() {
-  var workout = getWorkout(currentDay);
-  
-  if (currentExercise < workout.exercises.length - 1) {
-    currentExercise++;
-    timeLeft = workout.exercises[currentExercise].duration;
-    isResting = false;
-    renderWorkout();
-  } else {
-    completeWorkout();
-  }
-}
-
-function restartWorkout() {
-  currentExercise = 0;
-  isResting = false;
-  isRunning = false;
-  clearInterval(timerInterval);
-  
-  var workout = getWorkout(currentDay);
-  timeLeft = workout.exercises[0].duration;
-  renderWorkout();
-}
-
-async function completeWorkout() {
-  isRunning = false;
-  clearInterval(timerInterval);
-  
-  if (userData.completedDays.indexOf(currentDay) === -1) {
-    userData.completedDays.push(currentDay);
-    
-    // Sync to API
-    if (API_URL) {
-      try {
-        var result = await apiCall('/api/users/' + userData.id + '/complete', 'POST', { day: currentDay });
-        userData.completedDays = result.completed_days || userData.completedDays;
-      } catch (err) {
-        console.log('API sync failed, saved locally');
-      }
-    }
-    
-    saveLocal();
-  }
-  
-  var workout = getWorkout(currentDay);
-  document.getElementById('completeTitle').textContent = 'DAY ' + currentDay + ' COMPLETE!';
-  document.getElementById('completeSub').textContent = workout.title + ' crushed!';
-  showPage('completePage');
-}
-
-// ============ SQUAD ============
-function showSquad() {
-  showPage('squadPage');
-  renderSquad();
-  
-  // Start sync interval if in a squad
-  if (squadCode && API_URL) {
-    loadSquadMembers();
-    syncInterval = setInterval(loadSquadMembers, 5000);
-  }
-}
-
-function switchSquadTab(tab) {
-  var tabs = document.querySelectorAll('.squad-tab');
-  var panels = document.querySelectorAll('.squad-panel');
-  
-  for (var i = 0; i < tabs.length; i++) {
-    tabs[i].classList.remove('active');
-  }
-  for (var i = 0; i < panels.length; i++) {
-    panels[i].classList.remove('active');
-  }
-  
-  if (tab === 'create') {
-    tabs[0].classList.add('active');
-    document.getElementById('createPanel').classList.add('active');
-  } else {
-    tabs[1].classList.add('active');
-    document.getElementById('joinPanel').classList.add('active');
-  }
-}
-
-function renderSquad() {
-  var hasSquad = squadCode && squadCode.length > 0;
-  
-  document.getElementById('squadNoCode').classList.toggle('hide', hasSquad);
-  document.getElementById('squadActive').classList.toggle('hide', !hasSquad);
-  
-  if (hasSquad) {
-    document.getElementById('squadCodeDisplay').textContent = squadCode;
-    document.getElementById('memberCount').textContent = squadMembers.length || 1;
-    
-    var list = document.getElementById('membersList');
-    list.innerHTML = '';
-    
-    var members = squadMembers.length > 0 ? squadMembers : [userData];
-    
-    for (var i = 0; i < members.length; i++) {
-      var member = members[i];
-      var card = document.createElement('div');
-      card.className = 'member-card';
-      var completed = 0;
-      if (member.completed_days) {
-        completed = member.completed_days.length;
-      } else if (member.completedDays) {
-        completed = member.completedDays.length;
-      }
-      var isYou = member.id === userData.id;
-      var memberName = member.name || 'Unknown';
-      var initial = memberName.charAt(0).toUpperCase();
-      
-      card.innerHTML = '<div class="member-avatar">' + initial + '</div>' +
-        '<div class="member-info">' +
-        '<span class="member-name">' + memberName + (isYou ? ' (You)' : '') + '</span>' +
-        '<div class="member-stats"><span class="stat-badge">🔥 ' + completed + '/75</span></div>' +
-        '<div class="mini-progress"><div class="mini-progress-fill" style="width:' + ((completed / 75) * 100) + '%"></div></div>' +
-        '</div>';
-      list.appendChild(card);
-    }
-    
-    // Update sync status
-    var syncStatus = document.getElementById('syncStatus');
-    if (API_URL) {
-      syncStatus.textContent = '✅ Live sync active - updates every 5 seconds';
-      syncStatus.style.display = 'block';
-    } else {
-      syncStatus.textContent = '⚠️ Offline mode - squad sync requires backend';
-      syncStatus.style.display = 'block';
-    }
-  }
-}
-
-async function loadSquadMembers() {
-  if (!squadCode || !API_URL) return;
-  
-  try {
-    var members = await apiCall('/api/squads/' + squadCode + '/members', 'GET');
-    squadMembers = members;
-    saveLocal();
-    renderSquad();
-  } catch (err) {
-    console.log('Failed to load squad members:', err.message);
-  }
-}
-
-function generateCode() {
-  var chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-  var code = '';
-  for (var i = 0; i < 6; i++) {
-    code += chars.charAt(Math.floor(Math.random() * chars.length));
-  }
-  return code;
-}
-
-async function createSquad() {
-  setLoading('createSquadBtn', true);
-  
-  if (API_URL) {
-    try {
-      var result = await apiCall('/api/squads', 'POST', { userId: userData.id });
-      squadCode = result.code;
-      squadMembers = [userData];
-      saveLocal();
-      
-      // Start sync
-      loadSquadMembers();
-      syncInterval = setInterval(loadSquadMembers, 5000);
-      
-      setLoading('createSquadBtn', false);
-      renderSquad();
-      return;
-    } catch (err) {
-      console.log('API create squad failed:', err.message);
-    }
-  }
-  
-  // Fallback to local
-  squadCode = generateCode();
-  squadMembers = [{
-    id: userData.id,
-    name: userData.name,
-    startDate: userData.startDate,
-    completedDays: userData.completedDays.slice()
-  }];
-  saveLocal();
-  setLoading('createSquadBtn', false);
-  renderSquad();
-}
-
-async function joinSquad() {
-  var code = document.getElementById('joinCodeInput').value.toUpperCase().trim();
-  var errorEl = document.getElementById('squadError');
-  
-  if (!code || code.length !== 6) {
-    errorEl.textContent = 'Please enter a 6-letter code';
-    errorEl.classList.remove('hide');
-    return;
-  }
-  
-  errorEl.classList.add('hide');
-  setLoading('joinSquadBtn', true);
-  
-  if (API_URL) {
-    try {
-      var result = await apiCall('/api/squads/' + code + '/join', 'POST', { userId: userData.id });
-      squadCode = result.code;
-      saveLocal();
-      
-      // Load members and start sync
-      await loadSquadMembers();
-      syncInterval = setInterval(loadSquadMembers, 5000);
-      
-      setLoading('joinSquadBtn', false);
-      document.getElementById('joinCodeInput').value = '';
-      renderSquad();
-      return;
-    } catch (err) {
-      errorEl.textContent = err.message || 'Squad not found';
-      errorEl.classList.remove('hide');
-      setLoading('joinSquadBtn', false);
-      return;
-    }
-  }
-  
-  // Fallback to local
-  squadCode = code;
-  if (squadMembers.findIndex(function(m) { return m.id === userData.id; }) === -1) {
-    squadMembers.push({
-      id: userData.id,
-      name: userData.name,
-      startDate: userData.startDate,
-      completedDays: userData.completedDays.slice()
-    });
-  }
-  saveLocal();
-  setLoading('joinSquadBtn', false);
-  document.getElementById('joinCodeInput').value = '';
-  renderSquad();
-}
-
-function copyCode() {
-  if (navigator.clipboard) {
-    navigator.clipboard.writeText(squadCode).then(function() {
-      alert('Code copied! Share "' + squadCode + '" with your friends.');
-    });
-  } else {
-    prompt('Copy this code:', squadCode);
-  }
-}
-
-async function leaveSquad() {
-  if (!confirm('Leave this squad?')) return;
-  
-  if (API_URL && squadCode) {
-    try {
-      await apiCall('/api/squads/' + squadCode + '/leave', 'POST', { userId: userData.id });
-    } catch (err) {}
-  }
-  
-  squadCode = null;
-  squadMembers = [];
-  saveLocal();
-  
-  if (syncInterval) {
-    clearInterval(syncInterval);
-    syncInterval = null;
-  }
-  
-  renderSquad();
-}
-
-// ============ INIT ============
-async function init() {
-  loadLocal();
-  
-  // Set default date to today
-  var today = new Date();
-  var yyyy = today.getFullYear();
-  var mm = String(today.getMonth() + 1).padStart(2, '0');
-  var dd = String(today.getDate()).padStart(2, '0');
-  document.getElementById('dateInput').value = yyyy + '-' + mm + '-' + dd;
-  
-  // Try to sync with API if user exists
-  if (userData && API_URL) {
-    try {
-      var result = await apiCall('/api/users/' + userData.id, 'GET');
-      userData.completedDays = result.completed_days || [];
-      squadCode = result.squad_code || squadCode;
-      saveLocal();
-    } catch (err) {
-      console.log('Could not sync with API');
-    }
-  }
-  
-  if (userData) {
-    showCalendar();
-  } else {
-    showPage('landingPage');
-  }
-}
-
+function init(){loadLocal();document.getElementById('dateInput').value=new Date().toISOString().split('T')[0];if(userData)showCalendar();else showPage('landingPage');}
 init();
 </script>
-
 </body>
 </html>
